@@ -8,42 +8,54 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; line-height: 1.5; color: #333; background-color: #fff; }
+        body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #333; background-color: #fff; font-size: 1.1rem; }
         :root { --azul-escuro: #2C3E50; --azul-claro: #3498DB; --sucesso: #25D366; }
         
-        h1, h2, h3 { color: var(--azul-escuro); margin-bottom: 15px; }
+        /* Ajuste de Títulos */
+        h1 { font-size: 2.8rem; line-height: 1.2; color: var(--azul-escuro); margin-bottom: 20px; }
+        h2 { font-size: 2.2rem; color: var(--azul-escuro); margin-bottom: 15px; }
+        h4 { font-size: 1.4rem; margin-bottom: 10px; }
+
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         
-        /* LOGO REALMENTE AMPLIADA */
+        /* LOGO AMPLIADA E HARMONIZADA */
         .logo-container { padding: 40px 0; text-align: center; border-bottom: 1px solid #eee; }
-        .logo { width: 100%; max-width: 700px; height: auto; display: block; margin: 0 auto; }
+        .logo { width: 100%; max-width: 650px; height: auto; display: block; margin: 0 auto; }
 
-        .hero { padding: 60px 0; text-align: center; }
-        .hero h1 { font-size: 2.2rem; font-weight: 700; }
+        /* HERO */
+        .hero { padding: 80px 0; text-align: center; background-color: #ffffff; }
+        .hero p { font-size: 1.3rem; max-width: 850px; margin: 20px auto 30px; color: #555; }
         
-        .btn { display: inline-block; padding: 12px 25px; background-color: var(--azul-escuro); color: #fff; font-weight: 700; text-transform: uppercase; transition: 0.3s; border-radius: 4px; text-decoration: none; border: none; cursor: pointer; }
+        .btn { display: inline-block; padding: 16px 35px; background-color: var(--azul-escuro); color: #fff; font-weight: 700; text-transform: uppercase; transition: 0.3s; border-radius: 4px; text-decoration: none; border: none; cursor: pointer; font-size: 1.1rem; }
         .btn:hover { background-color: var(--azul-claro); transform: translateY(-2px); }
         
-        .btn-whatsapp { background-color: var(--sucesso); color: #fff; padding: 18px 35px; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 10px; margin: 30px auto; max-width: 450px; border-radius: 4px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .btn-whatsapp { background-color: var(--sucesso); color: #fff; padding: 20px 40px; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; gap: 12px; margin: 40px auto; max-width: 480px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: 0.3s; }
         .btn-whatsapp:hover { background-color: #128C7E; transform: scale(1.05); }
 
-        .section { padding: 40px 0; border-bottom: 1px solid #eee; }
+        .section { padding: 60px 0; border-bottom: 1px solid #eee; }
         .section-gray { background-color: #f9f9f9; }
-        .grid { display: grid; gap: 20px; margin-top: 30px; }
-        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .grid { display: grid; gap: 30px; margin-top: 40px; }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
         .grid-5 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
         
-        .icon { font-size: 2rem; color: var(--azul-claro); margin-bottom: 10px; }
+        .icon { font-size: 2.5rem; color: var(--azul-claro); margin-bottom: 15px; }
 
-        .caminho-lista { list-style: none; counter-reset: item; max-width: 850px; margin: 30px auto 0; text-align: left; }
-        .caminho-lista li { position: relative; margin-bottom: 15px; padding: 15px 15px 15px 65px; background: #fff; border-radius: 8px; border: 1px solid #eee; }
-        .caminho-lista li::before { content: counter(item); counter-increment: item; position: absolute; left: 15px; top: 15px; background: var(--azul-escuro); color: #fff; width: 35px; height: 35px; text-align: center; line-height: 35px; font-weight: bold; border-radius: 50%; }
-        .caminho-lista li strong { color: var(--azul-escuro); display: block; font-size: 1.1rem; margin-bottom: 3px; }
+        .caminho-lista { list-style: none; counter-reset: item; max-width: 900px; margin: 40px auto 0; text-align: left; }
+        .caminho-lista li { position: relative; margin-bottom: 20px; padding: 20px 20px 20px 80px; background: #fff; border-radius: 8px; border: 1px solid #eee; font-size: 1.15rem; }
+        .caminho-lista li::before { content: counter(item); counter-increment: item; position: absolute; left: 20px; top: 22px; background: var(--azul-escuro); color: #fff; width: 45px; height: 45px; text-align: center; line-height: 45px; font-weight: bold; border-radius: 50%; font-size: 1.2rem; }
+        .caminho-lista li strong { color: var(--azul-escuro); display: block; font-size: 1.4rem; margin-bottom: 5px; }
 
-        .footer { background-color: var(--azul-escuro); color: #fff; padding: 40px 0; text-align: center; }
+        .footer { background-color: var(--azul-escuro); color: #fff; padding: 50px 0; text-align: center; }
         .footer a { color: #fff; text-decoration: underline; }
+        .footer p { font-size: 1.1rem; }
 
-        @media (max-width: 768px) { .hero h1 { font-size: 1.6rem; } .grid-5 { grid-template-columns: 1fr; } .logo { max-width: 90%; } }
+        @media (max-width: 768px) { 
+            h1 { font-size: 2rem; } 
+            h2 { font-size: 1.7rem; }
+            .logo { max-width: 90%; }
+            .grid-5 { grid-template-columns: 1fr; } 
+            .section { padding: 50px 0; } 
+        }
     </style>
 </head>
 <body>
@@ -58,7 +70,7 @@
         <div class="container">
             <h1>Arquitetura Educacional para Organizações de Alta Complexidade</h1>
             <h2>Consultoria Estrutural para Empresas, ONGs e Setor Público.</h2>
-            <p style="max-width: 800px; margin: 15px auto 25px;">A aprendizagem organizacional precisa de estrutura, não apenas de eventos isolados. Ensinamos organizações a ensinar com método, planejamento e governança.</p>
+            <p>A aprendizagem organizacional precisa de estrutura, não apenas de eventos isolados. Ensinamos organizações a ensinar com método, planejamento e governança.</p>
             <a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank" class="btn">Agendar Reunião Estratégica</a>
         </div>
     </section>
@@ -104,23 +116,23 @@
             <h2 style="text-align: center;">O Caminho da Construção Estrutural</h2>
             <ul class="caminho-lista">
                 <li>
-                    <strong>01. Diagnóstico Educacional</strong>
+                    <strong>Diagnóstico Educacional</strong>
                     Análise profunda para identificar falhas de governança, dispersão de conhecimento e necessidades reais.
                 </li>
                 <li>
-                    <strong>02. Arquitetura do Ecossistema</strong>
+                    <strong>Arquitetura do Ecossistema</strong>
                     Definição da estrutura mestra e das regras de governança para o ensino na sua organização.
                 </li>
                 <li>
-                    <strong>03. Organização de Trilhas</strong>
+                    <strong>Organização de Trilhas</strong>
                     Estruturação lógica de caminhos de aprendizado e repositórios de saber acessíveis.
                 </li>
                 <li>
-                    <strong>04. Formação de Multiplicadores</strong>
+                    <strong>Formação de Multiplicadores</strong>
                     Capacitação técnica e andragógica para transformar especialistas internos em instrutores.
                 </li>
                 <li>
-                    <strong>05. Governança e Resultados</strong>
+                    <strong>Governança e Resultados</strong>
                     Monitoramento contínuo por KPIs para assegurar que o sistema permaneça eficiente.
                 </li>
             </ul>
@@ -135,16 +147,21 @@
         <div class="container">
             <div class="grid grid-3" style="margin-top: 0;">
                 <div>
-                    <i class="fab fa-whatsapp" style="font-size: 1.2rem; margin-bottom: 5px;"></i>
+                    <i class="fab fa-whatsapp" style="font-size: 1.5rem; margin-bottom: 5px;"></i>
                     <p><a href="https://wa.me/5561992585588" target="_blank">(61) 99258-5588</a></p>
                 </div>
                 <div>
-                    <i class="fas fa-envelope" style="font-size: 1.2rem; margin-bottom: 5px;"></i>
+                    <i class="fas fa-envelope" style="font-size: 1.5rem; margin-bottom: 5px;"></i>
                     <p><a href="mailto:contatoarquiteturaeducacional@gmail.com">contatoarquiteturaeducacional@gmail.com</a></p>
                 </div>
                 <div>
-                    <i class="fas fa-calendar-alt" style="font-size: 1.2rem; margin-bottom: 5px;"></i>
+                    <i class="fas fa-calendar-alt" style="font-size: 1.5rem; margin-bottom: 5px;"></i>
                     <p><a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank">Agendar Reunião</a></p>
                 </div>
             </div>
-            <p style="margin-top
+            <p style="margin-top: 35px; font-size: 1rem; opacity: 0.8;">&copy; 2026 Arquitetura Educacional Corporativa.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
