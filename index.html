@@ -18,9 +18,9 @@
         .btn { display: inline-block; padding: 15px 30px; background-color: var(--azul-escuro); color: #fff; font-weight: 700; text-transform: uppercase; transition: 0.3s; border-radius: 4px; text-decoration: none; cursor: pointer; border: none; }
         .btn:hover { background-color: var(--azul-claro); transform: translateY(-3px); }
         
-        /* Botão Flutuante WhatsApp */
-        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: var(--sucesso); color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .whatsapp-float:hover { transform: scale(1.1); background-color: #128C7E; }
+        /* Botão WhatsApp em Destaque */
+        .btn-whatsapp { background-color: var(--sucesso); color: #fff; padding: 20px 40px; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; gap: 10px; margin: 40px auto; max-width: 450px; border-radius: 4px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .btn-whatsapp:hover { background-color: #128C7E; transform: scale(1.05); }
 
         .section { padding: 80px 0; border-bottom: 1px solid #eee; }
         .section-gray { background-color: #f8f9fa; }
@@ -32,26 +32,23 @@
         .logo-container { padding: 40px 0; text-align: center; border-bottom: 1px solid #eee; }
         .logo { max-width: 350px; height: auto; }
 
+        /* Hero sem fundo de imagem/gradiente forte */
         .hero { padding: 100px 0; text-align: center; background-color: #fff; }
         .hero h1 { font-size: 2.5rem; font-weight: 700; }
         
-        /* Estilização dos Passos */
+        /* Descrição Detalhada dos Passos */
         .caminho-lista { list-style: none; counter-reset: item; max-width: 850px; margin: 40px auto 0; text-align: left; }
-        .caminho-lista li { position: relative; margin-bottom: 30px; padding-left: 70px; font-size: 1.1rem; background: #fff; padding: 20px 20px 20px 70px; border-radius: 8px; border: 1px solid #eee; }
-        .caminho-lista li::before { content: counter(item); counter-increment: item; position: absolute; left: 15px; top: 50%; transform: translateY(-50%); background: var(--azul-escuro); color: #fff; width: 40px; height: 40px; text-align: center; line-height: 40px; font-weight: bold; border-radius: 50%; }
-        .caminho-lista li strong { color: var(--azul-escuro); display: block; font-size: 1.2rem; }
+        .caminho-lista li { position: relative; margin-bottom: 30px; padding: 25px 25px 25px 75px; background: #fff; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .caminho-lista li::before { content: counter(item); counter-increment: item; position: absolute; left: 20px; top: 25px; background: var(--azul-escuro); color: #fff; width: 40px; height: 40px; text-align: center; line-height: 40px; font-weight: bold; border-radius: 50%; }
+        .caminho-lista li strong { color: var(--azul-escuro); display: block; font-size: 1.25rem; margin-bottom: 5px; }
 
         .footer { background-color: var(--azul-escuro); color: #fff; padding: 60px 0; text-align: center; }
         .footer a { color: #fff; text-decoration: underline; }
 
-        @media (max-width: 768px) { .hero h1 { font-size: 1.8rem; } .grid-5 { grid-template-columns: 1fr; } .whatsapp-float { bottom: 20px; right: 20px; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 1.8rem; } .grid-5 { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-
-    <a href="https://wa.me/5561992585588" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <header class="logo-container">
         <div class="container">
@@ -109,26 +106,30 @@
             <h2 style="text-align: center;">O Caminho da Construção Estrutural</h2>
             <ul class="caminho-lista">
                 <li>
-                    <strong>1. Diagnóstico Educacional</strong>
-                    Identificação de gaps e análise profunda da realidade institucional para entender as dores atuais.
+                    <strong>Diagnóstico Educacional</strong>
+                    Análise profunda para identificar falhas de governança, dispersão de conhecimento e identificar as reais necessidades de treinamento da instituição.
                 </li>
                 <li>
-                    <strong>2. Arquitetura do Ecossistema</strong>
-                    Desenho do framework personalizado e das regras de governança para o ensino na sua organização.
+                    <strong>Arquitetura do Ecossistema</strong>
+                    Definição da estrutura mestra e das regras de governança, garantindo que o aprendizado esteja alinhado aos objetivos estratégicos da organização.
                 </li>
                 <li>
-                    <strong>3. Organização de Trilhas</strong>
-                    Estruturação lógica de caminhos de aprendizado e repositórios de saber acessíveis e escaláveis.
+                    <strong>Organização de Trilhas</strong>
+                    Criação de caminhos lógicos e sequenciais de aprendizado, organizando conteúdos em repositórios acessíveis para facilitar a consulta e o estudo.
                 </li>
                 <li>
-                    <strong>4. Formação de Multiplicadores</strong>
-                    Capacitação técnica e andragógica (ensino para adultos) para dar escala ao conhecimento interno.
+                    <strong>Formação de Multiplicadores</strong>
+                    Treinamento focado em andragogia e técnicas didáticas para transformar especialistas internos em instrutores capazes de escalar o saber.
                 </li>
                 <li>
-                    <strong>5. Governança e Resultados</strong>
-                    Implementação de KPIs (indicadores) e garantia de melhoria contínua dos processos educacionais.
+                    <strong>Governança e Resultados</strong>
+                    Monitoramento contínuo por meio de KPIs e processos de revisão, assegurando que o sistema educacional permaneça eficiente e atualizado.
                 </li>
             </ul>
+
+            <a href="https://wa.me/5561992585588" class="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> FALAR COM CONSULTOR AGORA
+            </a>
         </div>
     </section>
 
