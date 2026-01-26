@@ -9,33 +9,50 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #333; background-color: #fff; }
-        :root { --azul-escuro: #2C3E50; --azul-claro: #3498DB; --sucesso: #25D366; }
+        :root { --azul-escuro: #2C3E50; --azul-claro: #3498DB; --cinza: #7F8C8D; --sucesso: #25D366; }
+        
         h1, h2, h3 { color: var(--azul-escuro); margin-bottom: 20px; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Botões */
+        .btn { display: inline-block; padding: 15px 30px; background-color: var(--azul-escuro); color: #fff; font-weight: 700; text-transform: uppercase; transition: 0.3s; border-radius: 4px; text-decoration: none; cursor: pointer; border: none; }
+        .btn:hover { background-color: var(--azul-claro); transform: translateY(-3px); }
+        
+        /* Botão WhatsApp em Destaque */
+        .btn-whatsapp { background-color: var(--sucesso); color: #fff; padding: 20px 40px; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; gap: 10px; margin: 40px auto; max-width: 450px; border-radius: 4px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .btn-whatsapp:hover { background-color: #128C7E; transform: scale(1.05); }
+
+        .section { padding: 80px 0; border-bottom: 1px solid #eee; }
+        .section-gray { background-color: #f8f9fa; }
+        .grid { display: grid; gap: 30px; margin-top: 40px; }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-5 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+        
+        .icon { font-size: 2.5rem; color: var(--azul-claro); margin-bottom: 15px; }
         .logo-container { padding: 40px 0; text-align: center; border-bottom: 1px solid #eee; }
         .logo { max-width: 350px; height: auto; }
 
-        /* HERO SEM PANO DE FUNDO */
-        .hero { padding: 100px 0; text-align: center; background-color: #ffffff; }
+        /* Hero sem fundo de imagem/gradiente forte */
+        .hero { padding: 100px 0; text-align: center; background-color: #fff; }
         .hero h1 { font-size: 2.5rem; font-weight: 700; }
         
-        .btn { display: inline-block; padding: 15px 30px; background-color: var(--azul-escuro); color: #fff; font-weight: 700; text-transform: uppercase; border-radius: 4px; text-decoration: none; }
-        
-        /* BOTÃO WHATSAPP EM DESTAQUE */
-        .btn-whatsapp { background-color: var(--sucesso); color: #fff; padding: 20px 40px; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; gap: 10px; margin: 40px auto; max-width: 450px; border-radius: 4px; text-decoration: none; font-weight: 700; }
-
+        /* Descrição Detalhada dos Passos */
         .caminho-lista { list-style: none; counter-reset: item; max-width: 850px; margin: 40px auto 0; text-align: left; }
-        .caminho-lista li { position: relative; margin-bottom: 30px; padding: 25px 25px 25px 75px; background: #fff; border: 1px solid #eee; border-radius: 8px; }
+        .caminho-lista li { position: relative; margin-bottom: 30px; padding: 25px 25px 25px 75px; background: #fff; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
         .caminho-lista li::before { content: counter(item); counter-increment: item; position: absolute; left: 20px; top: 25px; background: var(--azul-escuro); color: #fff; width: 40px; height: 40px; text-align: center; line-height: 40px; font-weight: bold; border-radius: 50%; }
-        
+        .caminho-lista li strong { color: var(--azul-escuro); display: block; font-size: 1.25rem; margin-bottom: 5px; }
+
         .footer { background-color: var(--azul-escuro); color: #fff; padding: 60px 0; text-align: center; }
         .footer a { color: #fff; text-decoration: underline; }
+
+        @media (max-width: 768px) { .hero h1 { font-size: 1.8rem; } .grid-5 { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+
     <header class="logo-container">
         <div class="container">
-            <img src="logo.png" alt="Arquitetura Educacional" class="logo">
+            <img src="logo.png" alt="Arquitetura Educacional Corporativa" class="logo">
         </div>
     </header>
 
@@ -43,8 +60,44 @@
         <div class="container">
             <h1>Arquitetura Educacional para Organizações de Alta Complexidade</h1>
             <h2>Consultoria Estrutural para Empresas, ONGs e Setor Público.</h2>
-            <p>A aprendizagem organizacional precisa de estrutura, não apenas de eventos isolados.</p>
+            <p style="max-width: 850px; margin: 20px auto 30px;">A aprendizagem organizacional precisa de estrutura, não apenas de eventos isolados. Ensinamos organizações a ensinar com método, planejamento e governança.</p>
             <a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank" class="btn">Agendar Reunião Estratégica</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center;">O Custo da Desorganização Educacional</h2>
+            <div class="grid grid-3">
+                <div style="text-align: center;">
+                    <i class="fas fa-exclamation-triangle icon"></i>
+                    <h4>Conhecimento Disperso</h4>
+                    <p>Informações fragmentadas geram inconsistência e perda de produtividade operacional.</p>
+                </div>
+                <div style="text-align: center;">
+                    <i class="fas fa-history icon"></i>
+                    <h4>Falta de Sustentabilidade</h4>
+                    <p>Treinamentos isolados que não se mantêm no longo prazo, gerando gastos recorrentes.</p>
+                </div>
+                <div style="text-align: center;">
+                    <i class="fas fa-user-shield icon"></i>
+                    <h4>Dependência de Pessoas</h4>
+                    <p>O conhecimento sai quando o colaborador sai. Criamos processos que protegem o capital intelectual.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-gray">
+        <div class="container">
+            <h2 style="text-align: center;">Os 5 Pilares do Ecossistema</h2>
+            <div class="grid grid-5">
+                <div style="text-align: center;"><i class="fas fa-balance-scale icon"></i><h4>Governança</h4></div>
+                <div style="text-align: center;"><i class="fas fa-drafting-compass icon"></i><h4>Métodos</h4></div>
+                <div style="text-align: center;"><i class="fas fa-users icon"></i><h4>Pessoas</h4></div>
+                <div style="text-align: center;"><i class="fas fa-book icon"></i><h4>Conteúdos</h4></div>
+                <div style="text-align: center;"><i class="fas fa-cogs icon"></i><h4>Processos</h4></div>
+            </div>
         </div>
     </section>
 
@@ -52,12 +105,28 @@
         <div class="container">
             <h2 style="text-align: center;">O Caminho da Construção Estrutural</h2>
             <ul class="caminho-lista">
-                <li><strong>Diagnóstico Educacional:</strong> Análise para identificar falhas de governança e dispersão de conhecimento.</li>
-                <li><strong>Arquitetura do Ecossistema:</strong> Definição da estrutura mestra e das regras de governança educacional.</li>
-                <li><strong>Organização de Trilhas:</strong> Criação de caminhos lógicos e repositórios acessíveis de conteúdo.</li>
-                <li><strong>Formação de Multiplicadores:</strong> Treinamento em andragogia para transformar especialistas em instrutores.</li>
-                <li><strong>Governança e Resultados:</strong> Monitoramento por KPIs para assegurar eficiência contínua.</li>
+                <li>
+                    <strong>Diagnóstico Educacional</strong>
+                    Análise profunda para identificar falhas de governança, dispersão de conhecimento e identificar as reais necessidades de treinamento da instituição.
+                </li>
+                <li>
+                    <strong>Arquitetura do Ecossistema</strong>
+                    Definição da estrutura mestra e das regras de governança, garantindo que o aprendizado esteja alinhado aos objetivos estratégicos da organização.
+                </li>
+                <li>
+                    <strong>Organização de Trilhas</strong>
+                    Criação de caminhos lógicos e sequenciais de aprendizado, organizando conteúdos em repositórios acessíveis para facilitar a consulta e o estudo.
+                </li>
+                <li>
+                    <strong>Formação de Multiplicadores</strong>
+                    Treinamento focado em andragogia e técnicas didáticas para transformar especialistas internos em instrutores capazes de escalar o saber.
+                </li>
+                <li>
+                    <strong>Governança e Resultados</strong>
+                    Monitoramento contínuo por meio de KPIs e processos de revisão, assegurando que o sistema educacional permaneça eficiente e atualizado.
+                </li>
             </ul>
+
             <a href="https://wa.me/5561992585588" class="btn-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i> FALAR COM CONSULTOR AGORA
             </a>
@@ -65,7 +134,24 @@
     </section>
 
     <footer class="footer">
-        <p>&copy; 2026 Arquitetura Educacional Corporativa.</p>
+        <div class="container">
+            <div class="grid grid-3" style="margin-top: 0;">
+                <div>
+                    <i class="fab fa-whatsapp" style="font-size: 1.5rem; margin-bottom: 10px;"></i>
+                    <p><a href="https://wa.me/5561992585588" target="_blank">(61) 99258-5588</a></p>
+                </div>
+                <div>
+                    <i class="fas fa-envelope" style="font-size: 1.5rem; margin-bottom: 10px;"></i>
+                    <p><a href="mailto:contatoarquiteturaeducacional@gmail.com">contatoarquiteturaeducacional@gmail.com</a></p>
+                </div>
+                <div>
+                    <i class="fas fa-calendar-alt" style="font-size: 1.5rem; margin-bottom: 10px;"></i>
+                    <p><a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank">Agendar Reunião</a></p>
+                </div>
+            </div>
+            <p style="margin-top: 40px; font-size: 0.85rem; opacity: 0.7;">&copy; 2026 Arquitetura Educacional Corporativa. Foco em sustentabilidade institucional.</p>
+        </div>
     </footer>
+
 </body>
 </html>
