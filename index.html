@@ -9,43 +9,36 @@
     <style>
         /* Reset e Base */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #2F4F4F; background-color: #FFFFFF; }
-        h1, h2, h3 { color: #003366; }
-        a { text-decoration: none; color: #4682B4; }
+        body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #333333; background-color: #FFFFFF; }
+        
+        /* Cores extraídas da Logomarca */
+        :root {
+            --azul-escuro: #2C3E50; 
+            --azul-claro: #3498DB;  
+            --cinza-texto: #7F8C8D; 
+        }
+
+        h1, h2, h3 { color: var(--azul-escuro); }
+        a { text-decoration: none; color: var(--azul-claro); }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        /* Botões */
-        .btn { display: inline-block; padding: 12px 24px; background-color: #003366; color: #FFFFFF; border: none; font-weight: 600; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
-        .btn:hover { background-color: #4682B4; }
+        .btn { display: inline-block; padding: 14px 28px; background-color: var(--azul-escuro); color: #FFFFFF; border: none; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: 0.3s; border-radius: 4px; }
+        .btn:hover { background-color: var(--azul-claro); transform: translateY(-2px); }
         
-        /* Seções */
-        .section { padding: 60px 0; }
-        .grid { display: grid; gap: 20px; }
+        .section { padding: 80px 0; }
+        .grid { display: grid; gap: 30px; }
         .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-        .grid-5 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-        .icon { font-size: 2rem; color: #4682B4; margin-bottom: 10px; }
+        .icon { font-size: 2.5rem; color: var(--azul-claro); margin-bottom: 15px; }
 
-        /* Logomarca e Hero */
-        .logo-container { padding: 20px 0; text-align: center; background: #fff; }
-        .logo { max-width: 300px; height: auto; }
-        .hero { background: linear-gradient(to right, #FFFFFF 50%, #F0F0F0 50%); padding: 60px 0; text-align: center; }
-        .hero h1 { font-size: 2.2rem; margin-bottom: 20px; }
-        .hero p { max-width: 800px; margin: 0 auto 20px; }
+        .logo-container { padding: 30px 0; text-align: center; border-bottom: 1px solid #eee; }
+        .logo { max-width: 320px; height: auto; }
+        .hero { background: linear-gradient(135deg, #FFFFFF 0%, #F4F7F9 100%); padding: 80px 0; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 20px; font-weight: 700; }
+        .hero h2 { color: var(--cinza-texto); font-weight: 400; margin-bottom: 30px; }
 
-        /* Metodologia */
-        .caminho { background-color: #E6F2FF; }
-        .caminho ol { list-style: none; counter-reset: item; }
-        .caminho li { position: relative; margin-bottom: 15px; padding-left: 45px; text-align: left; }
-        .caminho li::before { content: counter(item); counter-increment: item; position: absolute; left: 0; top: 0; background: #003366; color: white; width: 30px; height: 30px; text-align: center; line-height: 30px; font-weight: bold; }
-
-        /* Rodapé */
-        .footer { background-color: #003366; color: #FFFFFF; padding: 40px 0; text-align: center; }
-        .footer a { color: #fff; text-decoration: underline; }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .grid-3, .grid-5 { grid-template-columns: 1fr; }
-        }
+        .caminho { background-color: #f0f4f8; border-top: 1px solid #d1d9e6; }
+        .footer { background-color: var(--azul-escuro); color: #FFFFFF; padding: 50px 0; text-align: center; }
+        .footer a { color: #fff; border-bottom: 1px solid var(--azul-claro); }
     </style>
 </head>
 <body>
@@ -58,73 +51,53 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Planejamento, organização e governança da aprendizagem organizacional.</h1>
-            <h2>Consultoria especializada em estruturar como as empresas ensinam.</h2>
-            <p>Transforme treinamentos pontuais em sistemas duradouros. Nossa abordagem analítica identifica lacunas e constrói frameworks que garantem resultados de longo prazo.</p>
-            <a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank" class="btn">Agendar Visita Estratégica</a>
+            <h1>Arquitetura Educacional para Organizações de Alta Complexidade</h1>
+            <h2>Consultoria estrutural para Empresas, ONGs e Órgãos Públicos.</h2>
+            <p style="max-width: 800px; margin: 0 auto 30px;">Especialistas em planejar, organizar e governar o conhecimento em ambientes corporativos e institucionais[cite: 1, 150]. Transformamos eventos pontuais em ecossistemas de aprendizagem sustentáveis[cite: 20, 29].</p>
+            <a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank" class="btn">Solicitar Diagnóstico Institucional</a>
         </div>
     </section>
 
-    <section class="section custo" id="custo">
+    <section class="section">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">O Custo da Desorganização Educacional</h2>
+            <h2 style="text-align: center; margin-bottom: 50px;">Soluções Estruturais de Longo Prazo</h2>
             <div class="grid grid-3">
                 <div style="text-align: center;">
-                    <i class="fas fa-exclamation-triangle icon"></i>
-                    <h4>Conhecimento Disperso</h4>
-                    <p>Informações fragmentadas geram perda de até 30% em eficiência operacional.</p>
+                    <i class="fas fa-building icon"></i>
+                    <h4>Empresas e Indústrias</h4>
+                    <p>Padronização de processos e redução da dependência de pessoas específicas[cite: 10, 11].</p>
                 </div>
                 <div style="text-align: center;">
-                    <i class="fas fa-calendar-times icon"></i>
-                    <h4>Eventos Pontuais</h4>
-                    <p>Treinamentos isolados que evaporam em meses, gerando retrabalho e custos recorrentes.</p>
+                    <i class="fas fa-hand-holding-heart icon"></i>
+                    <h4>ONGs e Fundações</h4>
+                    <p>Governança do ensino para perpetuar o conhecimento e a cultura institucional[cite: 36, 54].</p>
                 </div>
                 <div style="text-align: center;">
-                    <i class="fas fa-users icon"></i>
-                    <h4>Dependência de Pessoas</h4>
-                    <p>Vulnerabilidade crítica quando o conhecimento não é processualizado e padronizado.</p>
+                    <i class="fas fa-university icon"></i>
+                    <h4>Setor Público e Academias</h4>
+                    <p>Estruturação de Universidades Corporativas com foco em eficiência e KPIs[cite: 71, 166].</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="section caminho">
-        <div class="container" style="text-align: center;">
-            <h2 style="margin-bottom: 30px;">Caminho da Construção: 5 Passos</h2>
-            <div style="display: inline-block; text-align: left; max-width: 600px;">
-                <ol>
-                    <li><strong>Diagnóstico:</strong> Análise de lacunas em governança e eficiência.</li>
-                    <li><strong>Arquitetura:</strong> Desenho do framework e regras do jogo.</li>
-                    <li><strong>Organização:</strong> Estruturação lógica de trilhas e caminhos.</li>
-                    <li><strong>Formação:</strong> Capacitação de multiplicadores internos (Andragogia).</li>
-                    <li><strong>Governança:</strong> Estabelecimento de KPIs e melhoria contínua.</li>
-                </ol>
-            </div>
-            <br><br>
-            <a href="https://wa.me/5561992585588" target="_blank" class="btn" style="background-color: #25D366;">
-                <i class="fab fa-whatsapp"></i> Falar com Consultor Agora
-            </a>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p style="margin-bottom: 20px;">Estamos à disposição para propor o melhor caminho educacional para sua organização.</p>
             <div class="grid grid-3">
                 <div>
-                    <i class="fas fa-envelope"></i>
-                    <p><a href="mailto:contatoarquiteturaeducacional@gmail.com">contatoarquiteturaeducacional@gmail.com</a></p>
+                    <i class="fas fa-envelope" style="font-size: 1.5rem; margin-bottom: 10px;"></i>
+                    <p><a href="mailto:contatoarquiteturaeducacional@gmail.com">E-mail Corporativo</a></p>
                 </div>
                 <div>
-                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-whatsapp" style="font-size: 1.5rem; margin-bottom: 10px;"></i>
                     <p><a href="https://wa.me/5561992585588" target="_blank">(61) 99258-5588</a></p>
                 </div>
                 <div>
-                    <i class="fas fa-calendar-check"></i>
-                    <p><a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank">Agendar Diagnóstico</a></p>
+                    <i class="fas fa-calendar-check" style="font-size: 1.5rem; margin-bottom: 10px;"></i>
+                    <p><a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank">Agendar Reunião Técnica</a></p>
                 </div>
             </div>
-            <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Arquitetura Educacional Corporativa.</p>
+            <p style="margin-top: 40px; font-size: 0.85rem; opacity: 0.7;">&copy; 2026 Arquitetura Educacional Corporativa. Foco em sustentabilidade e governança[cite: 53, 150].</p>
         </div>
     </footer>
 
