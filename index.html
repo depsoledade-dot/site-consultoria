@@ -9,23 +9,23 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #333; background-color: #fff; }
-        :root { --azul-escuro: #2C3E50; --azul-claro: #3498DB; --cinza: #7F8C8D; }
-        h1, h2, h3 { color: var(--azul-escuro); margin-bottom: 20px; }
+        :root { --azul-escuro: #2C3E50; --azul-claro: #3498DB; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .btn { display: inline-block; padding: 15px 30px; background-color: var(--azul-escuro); color: #fff; font-weight: 700; text-transform: uppercase; transition: 0.3s; border: none; cursor: pointer; text-decoration: none; border-radius: 4px; }
-        .btn:hover { background-color: var(--azul-claro); transform: translateY(-3px); }
-        .section { padding: 80px 0; border-bottom: 1px solid #eee; }
-        .grid { display: grid; gap: 30px; }
-        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-        .grid-5 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-        .icon { font-size: 2.5rem; color: var(--azul-claro); margin-bottom: 15px; }
-        .logo-container { padding: 30px 0; text-align: center; }
-        .logo { max-width: 320px; height: auto; }
+        
+        /* Ajuste da Logo */
+        .logo-container { padding: 40px 0; text-align: center; border-bottom: 1px solid #eee; }
+        .logo { max-width: 350px; height: auto; display: inline-block; }
+        .logo-texto { font-size: 1.8rem; font-weight: 700; color: var(--azul-escuro); text-transform: uppercase; display: none; }
+
         .hero { background: linear-gradient(135deg, #fff 0%, #f4f7f9 100%); padding: 80px 0; text-align: center; }
-        .caminho-lista { list-style: none; counter-reset: item; max-width: 800px; margin: 0 auto; text-align: left; }
-        .caminho-lista li { position: relative; margin-bottom: 25px; padding-left: 60px; font-size: 1.1rem; }
-        .caminho-lista li::before { content: counter(item); counter-increment: item; position: absolute; left: 0; top: 0; background: var(--azul-escuro); color: #fff; width: 40px; height: 40px; text-align: center; line-height: 40px; font-weight: bold; border-radius: 4px; }
-        .footer { background-color: var(--azul-escuro); color: #fff; padding: 60px 0; text-align: center; }
+        .btn { display: inline-block; padding: 15px 30px; background: var(--azul-escuro); color: #fff; font-weight: 700; text-transform: uppercase; border-radius: 4px; text-decoration: none; transition: 0.3s; }
+        .btn:hover { background: var(--azul-claro); transform: translateY(-2px); }
+        
+        .section { padding: 70px 0; text-align: center; }
+        .grid { display: grid; gap: 30px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 40px; }
+        .icon { font-size: 2.5rem; color: var(--azul-claro); margin-bottom: 15px; }
+        
+        .footer { background: var(--azul-escuro); color: #fff; padding: 60px 0; text-align: center; }
         .footer a { color: #fff; text-decoration: underline; }
     </style>
 </head>
@@ -33,105 +33,38 @@
 
     <header class="logo-container">
         <div class="container">
-            <img src="logo.png" alt="Arquitetura Educacional Corporativa" class="logo" onerror="this.src='https://via.placeholder.com/350x100?text=Arquitetura+Educacional';">
+            <img src="logo.png" alt="Arquitetura Educacional Corporativa" class="logo" onerror="this.style.display='none'; document.getElementById('txt-logo').style.display='block';">
+            <div id="txt-logo" class="logo-texto">Arquitetura Educacional</div>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
             <h1>Arquitetura Educacional para Organizações de Alta Complexidade</h1>
-            <h2>Consultoria Estrutural para Empresas, ONGs e Setor Público.</h2>
-            <p style="max-width: 850px; margin: 0 auto 30px;">A aprendizagem organizacional precisa de estrutura, não apenas de eventos[cite: 29]. Ensinamos organizações a ensinar melhor com método, planejamento e governança[cite: 30].</p>
+            <h2>Consultoria Estrutural para Empresas, ONGs e Setor Público</h2>
+            <p style="margin: 20px 0;">Transformamos treinamentos pontuais em ecossistemas de aprendizagem sustentáveis e governados.</p>
             <a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank" class="btn">Agendar Reunião Estratégica</a>
-        </div>
-    </section>
-
-    <section class="section" style="background-color: #fcfcfc;">
-        <div class="container">
-            <h2 style="text-align: center;">O Custo da Desorganização Educacional [cite: 4]</h2>
-            <div class="grid grid-3">
-                <div style="text-align: center;">
-                    <i class="fas fa-exclamation-triangle icon"></i>
-                    <h4>Conhecimento Disperso</h4>
-                    <p>Informações mal organizadas levam a falhas críticas e perda de eficiência[cite: 8].</p>
-                </div>
-                <div style="text-align: center;">
-                    <i class="fas fa-calendar-times icon"></i>
-                    <h4>Eventos Pontuais</h4>
-                    <p>Treinamentos isolados que não se sustentam e geram desperdício de investimento[cite: 9, 21].</p>
-                </div>
-                <div style="text-align: center;">
-                    <i class="fas fa-user-slash icon"></i>
-                    <h4>Dependência de Pessoas</h4>
-                    <p>O saber institucional é perdido quando talentos saem. Estruturamos a perpetuidade[cite: 11].</p>
-                </div>
-            </div>
         </div>
     </section>
 
     <section class="section">
         <div class="container">
-            <h2 style="text-align: center;">Os 5 Pilares do Ecossistema Educacional [cite: 34]</h2>
-            <div class="grid grid-5">
-                <div style="text-align: center;">
-                    <i class="fas fa-balance-scale icon"></i>
-                    <h4>Governança</h4>
-                    <p>Regras e supervisão alinhadas à estratégia institucional[cite: 36, 154].</p>
-                </div>
-                <div style="text-align: center;">
-                    <i class="fas fa-project-diagram icon"></i>
-                    <h4>Métodos</h4>
-                    <p>Andragogia e processos didáticos de alta eficiência[cite: 37, 124].</p>
-                </div>
-                <div style="text-align: center;">
-                    <i class="fas fa-users icon"></i>
-                    <h4>Pessoas</h4>
-                    <p>Capacitação e formação de multiplicadores internos[cite: 40, 69].</p>
-                </div>
-                <div style="text-align: center;">
-                    <i class="fas fa-book-open icon"></i>
-                    <h4>Conteúdos</h4>
-                    <p>Materiais padronizados e gestão do saber[cite: 41, 68].</p>
-                </div>
-                <div style="text-align: center;">
-                    <i class="fas fa-cogs icon"></i>
-                    <h4>Processos</h4>
-                    <p>Fluxos operacionais integrados à rotina de trabalho[cite: 42].</p>
-                </div>
+            <h2>Nossos Pilares Estratégicos</h2>
+            <div class="grid">
+                <div><i class="fas fa-balance-scale icon"></i><h4>Governança</h4><p>Alinhamento estratégico e regras de funcionamento.</p></div>
+                <div><i class="fas fa-users-cog icon"></i><h4>Pessoas</h4><p>Formação de multiplicadores e andragogia aplicada.</p></div>
+                <div><i class="fas fa-cogs icon"></i><h4>Processos</h4><p>Estruturação de trilhas lógicas e repositórios.</p></div>
             </div>
-        </div>
-    </section>
-
-    <section class="section" style="background-color: #f8f9fa;">
-        <div class="container">
-            <h2 style="text-align: center;">O Caminho da Construção Estrutural [cite: 56]</h2>
-            <ul class="caminho-lista">
-                <li><strong>Diagnóstico Educacional:</strong> Identificação de gaps e análise da realidade atual[cite: 64, 73].</li>
-                <li><strong>Arquitetura do Ecossistema:</strong> Desenho do framework e regras de governança[cite: 66, 94].</li>
-                <li><strong>Organização de Trilhas:</strong> Estruturação lógica de caminhos e repositórios[cite: 68, 105].</li>
-                <li><strong>Formação de Multiplicadores:</strong> Capacitação técnica para escalar o conhecimento[cite: 69, 120].</li>
-                <li><strong>Governança e Resultados:</strong> KPIs para melhoria contínua e eficiência[cite: 71, 150].</li>
-            </ul>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <div class="grid grid-3">
-                <div>
-                    <i class="fas fa-envelope icon" style="color:#fff;"></i>
-                    <p><a href="mailto:contatoarquiteturaeducacional@gmail.com">E-mail Corporativo</a></p>
-                </div>
-                <div>
-                    <i class="fab fa-whatsapp icon" style="color:#fff;"></i>
-                    <p><a href="https://wa.me/5561992585588" target="_blank">(61) 99258-5588</a></p>
-                </div>
-                <div>
-                    <i class="fas fa-calendar-check icon" style="color:#fff;"></i>
-                    <p><a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank">Agendar Reunião Técnica</a></p>
-                </div>
+            <div class="grid" style="margin-top: 0;">
+                <div><i class="fab fa-whatsapp"></i><br><a href="https://wa.me/5561992585588">(61) 99258-5588</a></div>
+                <div><i class="fas fa-envelope"></i><br><a href="mailto:contatoarquiteturaeducacional@gmail.com">E-mail Corporativo</a></div>
+                <div><i class="fas fa-calendar-alt"></i><br><a href="https://forms.gle/7Lx5VnrhHM4Vbae47">Agendar Reunião</a></div>
             </div>
-            <p style="margin-top: 50px; font-size: 0.85rem; opacity: 0.7;">&copy; 2026 Arquitetura Educacional Corporativa. Foco em sustentabilidade institucional[cite: 53].</p>
         </div>
     </footer>
 
