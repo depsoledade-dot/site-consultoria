@@ -4,22 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arquitetura Educacional Corporativa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #333; }
-        :root { --azul-escuro: #2C3E50; --azul-claro: #3498DB; }
+        body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #2F4F4F; background-color: #FFFFFF; }
+        :root { --azul-escuro: #2C3E50; --azul-claro: #3498DB; --cinza: #7F8C8D; }
+        h1, h2, h3 { color: var(--azul-escuro); }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .logo-container { padding: 20px 0; text-align: center; border-bottom: 1px solid #eee; }
-        .logo { max-width: 300px; height: auto; }
-        .hero { background: #f4f7f9; padding: 80px 0; text-align: center; }
-        .btn { display: inline-block; padding: 15px 30px; background: var(--azul-escuro); color: #fff; font-weight: 700; text-transform: uppercase; border-radius: 4px; transition: 0.3s; }
-        .btn:hover { background: var(--azul-claro); transform: translateY(-2px); }
-        .section { padding: 70px 0; }
-        .grid { display: grid; gap: 30px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .btn { display: inline-block; padding: 15px 30px; background-color: var(--azul-escuro); color: #FFFFFF; border: none; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background-color: var(--azul-claro); transform: translateY(-3px); }
+        .section { padding: 80px 0; border-bottom: 1px solid #eee; }
+        .grid { display: grid; gap: 30px; }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-5 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
         .icon { font-size: 2.5rem; color: var(--azul-claro); margin-bottom: 15px; }
-        .footer { background: var(--azul-escuro); color: #fff; padding: 50px 0; text-align: center; }
+        .logo-container { padding: 30px 0; text-align: center; background: #fff; }
+        .logo { max-width: 320px; height: auto; }
+        .hero { background: linear-gradient(135deg, #FFFFFF 0%, #F4F7F9 100%); padding: 100px 0; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+        .caminho ol { list-style: none; counter-reset: item; max-width: 800px; margin: 0 auto; text-align: left; }
+        .caminho li { position: relative; margin-bottom: 20px; padding-left: 50px; font-size: 1.1rem; }
+        .caminho li::before { content: counter(item); counter-increment: item; position: absolute; left: 0; top: 0; background: var(--azul-escuro); color: white; width: 35px; height: 35px; text-align: center; line-height: 35px; font-weight: bold; border-radius: 4px; }
+        .footer { background-color: var(--azul-escuro); color: #FFFFFF; padding: 60px 0; text-align: center; }
         .footer a { color: #fff; text-decoration: underline; }
     </style>
 </head>
@@ -27,59 +34,87 @@
 
     <header class="logo-container">
         <div class="container">
-            <img src="https://files.oaiusercontent.com/file-7U9E8R4zG8W6J5N2Y3X1A0?se=2026-01-14T20%3A13%3A42Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3DChatGPT%2BImage%2B14%2Bde%2Bjan.%2Bde%2B2026%252C%2B17_13_42.png&sig=S/E6S3vE7vF/tG9nLz/Q9nLz/Q9nLz/Q9nLz/Q9nLz8%3D" alt="Arquitetura Educacional" class="logo">
+            <img src="https://files.oaiusercontent.com/file-7U9E8R4zG8W6J5N2Y3X1A0?se=2026-01-14T20%3A13%3A42Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3DChatGPT%2BImage%2B14%2Bde%2Bjan.%2Bde%2B2026%252C%2B17_13_42.png&sig=S/E6S3vE7vF/tG9nLz/Q9nLz/Q9nLz/Q9nLz/Q9nLz8%3D" alt="Arquitetura Educacional Corporativa" class="logo">
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h1>Arquitetura Educacional para Alta Complexidade</h1>
+            <h1>Arquitetura Educacional para Organizações de Alta Complexidade</h1>
             <h2>Consultoria Estrutural para Empresas, ONGs e Setor Público.</h2>
-            <p style="margin: 20px 0;">Transformamos eventos pontuais em ecossistemas de aprendizagem sustentáveis e governados.</p>
-            <a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank" class="btn">Solicitar Diagnóstico Institucional</a>
+            <p style="max-width: 850px; margin: 20px auto 30px;">A aprendizagem organizacional precisa de estrutura, não apenas de eventos. Ensinamos organizações a ensinar melhor com método, planejamento e governança.</p>
+            <a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank" class="btn">Agendar Reunião Estratégica</a>
         </div>
     </section>
 
     <section class="section">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">Nossos Pilares de Atuação</h2>
-            <div class="grid">
+            <h2 style="text-align: center; margin-bottom: 50px;">Os 5 Pilares do Ecossistema Educacional</h2>
+            <div class="grid grid-5">
                 <div style="text-align: center;">
                     <i class="fas fa-balance-scale icon"></i>
                     <h4>Governança</h4>
-                    <p>Alinhamento estratégico e regras do jogo educacional.</p>
+                    <p>Regras e supervisão alinhadas à estratégia organizacional.</p>
+                </div>
+                <div style="text-align: center;">
+                    <i class="fas fa-project-diagram icon"></i>
+                    <h4>Métodos</h4>
+                    <p>Andragogia e processos didáticos de alta eficiência.</p>
                 </div>
                 <div style="text-align: center;">
                     <i class="fas fa-users icon"></i>
                     <h4>Pessoas</h4>
-                    <p>Formação de multiplicadores e andragogia aplicada.</p>
+                    <p>Capacitação e formação de multiplicadores internos.</p>
+                </div>
+                <div style="text-align: center;">
+                    <i class="fas fa-book-open icon"></i>
+                    <h4>Conteúdos</h4>
+                    <p>Materiais padronizados e gestão do conhecimento.</p>
                 </div>
                 <div style="text-align: center;">
                     <i class="fas fa-cogs icon"></i>
                     <h4>Processos</h4>
-                    <p>Estruturação de trilhas e fluxos de aprendizagem.</p>
+                    <p>Fluxos operacionais integrados à rotina de trabalho.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section caminho" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 50px;">Caminho da Construção: Nossa Metodologia</h2>
+            <ol>
+                <li><strong>Diagnóstico Educacional:</strong> Compreender como a organização ensina hoje e identificar gaps.</li>
+                <li><strong>Arquitetura do Ecossistema:</strong> Desenhar o framework, pilares e componentes integrados.</li>
+                <li><strong>Organização de Trilhas:</strong> Estruturar caminhos lógicos de aprendizado e repositórios.</li>
+                <li><strong>Formação de Multiplicadores:</strong> Treinar agentes internos para escala e sustentabilidade.</li>
+                <li><strong>Governança e Resultados:</strong> Estabelecer KPIs e processos de melhoria contínua.</li>
+            </ol>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="https://wa.me/5561992585588" target="_blank" class="btn" style="background-color: #25D366;">
+                    <i class="fab fa-whatsapp"></i> Falar com Consultor Agora
+                </a>
             </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <div class="grid">
+            <div class="grid grid-3">
                 <div>
-                    <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
+                    <i class="fas fa-envelope icon" style="color:#fff;"></i>
+                    <p><a href="mailto:contatoarquiteturaeducacional@gmail.com">E-mail Corporativo</a></p>
+                </div>
+                <div>
+                    <i class="fab fa-whatsapp icon" style="color:#fff;"></i>
                     <p><a href="https://wa.me/5561992585588" target="_blank">(61) 99258-5588</a></p>
                 </div>
                 <div>
-                    <i class="fas fa-envelope" style="font-size: 1.5rem;"></i>
-                    <p><a href="mailto:contatoarquiteturaeducacional@gmail.com">contatoarquiteturaeducacional@gmail.com</a></p>
-                </div>
-                <div>
-                    <i class="fas fa-calendar-alt" style="font-size: 1.5rem;"></i>
-                    <p><a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank">Agendar Visita</a></p>
+                    <i class="fas fa-calendar-check icon" style="color:#fff;"></i>
+                    <p><a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank">Agendar Reunião Técnica</a></p>
                 </div>
             </div>
-            <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.7;">&copy; 2026 Arquitetura Educacional Corporativa.</p>
+            <p style="margin-top: 50px; font-size: 0.85rem; opacity: 0.7;">&copy; 2026 Arquitetura Educacional Corporativa. Foco em sustentabilidade institucional.</p>
         </div>
     </footer>
 
