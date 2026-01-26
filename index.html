@@ -8,277 +8,125 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Reset e Base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: #2F4F4F; /* Cinza grafite */
-            background-color: #FFFFFF; /* Branco */
-        }
-        h1, h2, h3 {
-            color: #003366; /* Azul marinho */
-        }
-        a {
-            text-decoration: none;
-            color: #4682B4; /* Azul aço */
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #003366;
-            color: #FFFFFF;
-            border: none;
-            border-radius: 0;
-            font-weight: 600;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #4682B4;
-        }
-        .section {
-            padding: 60px 0;
-        }
-        .grid {
-            display: grid;
-            gap: 20px;
-        }
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-        .grid-5 {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        }
-        .icon {
-            font-size: 2rem;
-            color: #4682B4;
-            margin-bottom: 10px;
-        }
-        /* Hero */
-        .hero {
-            background: linear-gradient(to right, #FFFFFF 50%, #F0F0F0 50%);
-            padding: 100px 0;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        .hero h2 {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-        }
-        .hero .btn {
-            margin-top: 20px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #2F4F4F; background-color: #FFFFFF; }
+        h1, h2, h3 { color: #003366; }
+        a { text-decoration: none; color: #4682B4; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Botões */
+        .btn { display: inline-block; padding: 12px 24px; background-color: #003366; color: #FFFFFF; border: none; font-weight: 600; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background-color: #4682B4; }
+        
         /* Seções */
-        .custo {
-            background-color: #F5F5F5; /* Cinza grafite claro */
-        }
-        .pilares {
-            background-color: #FFFFFF;
-        }
-        .caminho {
-            background-color: #E6F2FF; /* Azul aço suave */
-        }
-        .publico {
-            background-color: #FFFFFF;
-        }
+        .section { padding: 60px 0; }
+        .grid { display: grid; gap: 20px; }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-5 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+        .icon { font-size: 2rem; color: #4682B4; margin-bottom: 10px; }
+
+        /* Logomarca e Hero */
+        .logo-container { padding: 20px 0; text-align: center; background: #fff; }
+        .logo { max-width: 300px; height: auto; }
+        .hero { background: linear-gradient(to right, #FFFFFF 50%, #F0F0F0 50%); padding: 60px 0; text-align: center; }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 20px; }
+        .hero p { max-width: 800px; margin: 0 auto 20px; }
+
+        /* Metodologia */
+        .caminho { background-color: #E6F2FF; }
+        .caminho ol { list-style: none; counter-reset: item; }
+        .caminho li { position: relative; margin-bottom: 15px; padding-left: 45px; text-align: left; }
+        .caminho li::before { content: counter(item); counter-increment: item; position: absolute; left: 0; top: 0; background: #003366; color: white; width: 30px; height: 30px; text-align: center; line-height: 30px; font-weight: bold; }
+
         /* Rodapé */
-        .footer {
-            background-color: #003366;
-            color: #FFFFFF;
-            text-align: center;
-            padding: 40px 0;
-        }
-        .footer .grid {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        }
-        /* Responsividade */
+        .footer { background-color: #003366; color: #FFFFFF; padding: 40px 0; text-align: center; }
+        .footer a { color: #fff; text-decoration: underline; }
+        
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero h2 {
-                font-size: 1.2rem;
-            }
-            .grid-3, .grid-5 {
-                grid-template-columns: 1fr;
-            }
+            .hero h1 { font-size: 1.8rem; }
+            .grid-3, .grid-5 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Hero -->
+
+    <header class="logo-container">
+        <div class="container">
+            <img src="https://files.oaiusercontent.com/file-7U9E8R4zG8W6J5N2Y3X1A0?se=2026-01-14T20%3A13%3A42Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3DChatGPT%2BImage%2B14%2Bde%2Bjan.%2Bde%2B2026%252C%2B17_13_42.png&sig=S/E6S3vE7vF/tG9nLz/Q9nLz/Q9nLz/Q9nLz/Q9nLz8%3D" alt="Arquitetura Educacional Corporativa" class="logo">
+        </div>
+    </header>
+
     <section class="hero">
         <div class="container">
             <h1>Planejamento, organização e governança da aprendizagem organizacional.</h1>
             <h2>Consultoria especializada em estruturar como as empresas ensinam.</h2>
-            <p>A aprendizagem organizacional precisa de estrutura, não apenas de eventos. Ensinamos empresas a ensinar melhor com método e planejamento.</p>
-            <p>Transforme treinamentos pontuais em sistemas duradouros. Nossa abordagem analítica identifica lacunas e constrói frameworks que garantem resultados de longo prazo, reduzindo custos e aumentando a eficiência organizacional.</p>
-            <a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank" class="btn">Inicie com um Diagnóstico Educacional</a>
+            <p>Transforme treinamentos pontuais em sistemas duradouros. Nossa abordagem analítica identifica lacunas e constrói frameworks que garantem resultados de longo prazo.</p>
+            <a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank" class="btn">Agendar Visita Estratégica</a>
         </div>
     </section>
 
-    <!-- O Custo da Desorganização -->
     <section class="section custo" id="custo">
         <div class="container">
-            <h2>O Custo da Desorganização: Quando a Aprendizagem Falha</h2>
-            <h3>Empresas que ignoram a estrutura educacional enfrentam desafios que impactam produtividade, retenção e inovação. Identificamos e resolvemos esses gargalos com precisão.</h3>
+            <h2 style="text-align: center; margin-bottom: 40px;">O Custo da Desorganização Educacional</h2>
             <div class="grid grid-3">
-                <div>
+                <div style="text-align: center;">
                     <i class="fas fa-exclamation-triangle icon"></i>
                     <h4>Conhecimento Disperso</h4>
-                    <p>Informações fragmentadas levam a inconsistências, com perda de até 30% em eficiência operacional devido à falta de padronização.</p>
+                    <p>Informações fragmentadas geram perda de até 30% em eficiência operacional.</p>
                 </div>
-                <div>
+                <div style="text-align: center;">
                     <i class="fas fa-calendar-times icon"></i>
-                    <h4>Treinamentos Pontuais que Não se Sustentam</h4>
-                    <p>Eventos isolados geram entusiasmo inicial, mas sem governança, o conhecimento evapora em meses, resultando em retrabalho e custos recorrentes.</p>
+                    <h4>Eventos Pontuais</h4>
+                    <p>Treinamentos isolados que evaporam em meses, gerando retrabalho e custos recorrentes.</p>
                 </div>
-                <div>
+                <div style="text-align: center;">
                     <i class="fas fa-users icon"></i>
-                    <h4>Falta de Padrão e Dependência de Pessoas Específicas</h4>
-                    <p>Quando a aprendizagem depende de indivíduos-chave, a saída deles cria vulnerabilidades. Sem processos estruturados, a organização perde resiliência e escalabilidade.</p>
+                    <h4>Dependência de Pessoas</h4>
+                    <p>Vulnerabilidade crítica quando o conhecimento não é processualizado e padronizado.</p>
                 </div>
             </div>
-            <a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank" class="btn">Descubra como evitá-los com nosso diagnóstico</a>
         </div>
     </section>
 
-    <!-- Nossos Pilares -->
-    <section class="section pilares" id="pilares">
-        <div class="container">
-            <h2>Nossos Pilares: O Ecossistema da Aprendizagem Estruturada</h2>
-            <h3>Integramos cinco pilares fundamentais para criar um sistema coeso, onde cada elemento reforça o outro, garantindo aprendizagem sustentável e alinhada aos objetivos estratégicos da organização.</h3>
-            <div class="grid grid-5">
-                <div>
-                    <i class="fas fa-balance-scale icon"></i>
-                    <h4>Governança</h4>
-                    <p>Estabelece regras e supervisão para alinhar a aprendizagem com metas empresariais.</p>
-                </div>
-                <div>
-                    <i class="fas fa-project-diagram icon"></i>
-                    <h4>Métodos</h4>
-                    <p>Define abordagens didáticas eficazes, como andragogia e gamificação estruturada.</p>
-                </div>
-                <div>
-                    <i class="fas fa-columns icon"></i>
-                    <h4>Pessoas</h4>
-                    <p>Capacita equipes e líderes para multiplicar conhecimento internamente.</p>
-                </div>
-                <div>
-                    <i class="fas fa-cogs icon"></i>
-                    <h4>Conteúdos</h4>
-                    <p>Cria materiais padronizados e acessíveis, evitando dispersão.</p>
-                </div>
-                <div>
-                    <i class="fas fa-route icon"></i>
-                    <h4>Processos</h4>
-                    <p>Implementa fluxos operacionais que integram aprendizagem ao dia a dia.</p>
-                </div>
+    <section class="section caminho">
+        <div class="container" style="text-align: center;">
+            <h2 style="margin-bottom: 30px;">Caminho da Construção: 5 Passos</h2>
+            <div style="display: inline-block; text-align: left; max-width: 600px;">
+                <ol>
+                    <li><strong>Diagnóstico:</strong> Análise de lacunas em governança e eficiência.</li>
+                    <li><strong>Arquitetura:</strong> Desenho do framework e regras do jogo.</li>
+                    <li><strong>Organização:</strong> Estruturação lógica de trilhas e caminhos.</li>
+                    <li><strong>Formação:</strong> Capacitação de multiplicadores internos (Andragogia).</li>
+                    <li><strong>Governança:</strong> Estabelecimento de KPIs e melhoria contínua.</li>
+                </ol>
             </div>
-            <p>Esse ecossistema não é uma solução isolada, mas uma arquitetura integrada que evolui com a organização, assegurando resultados mensuráveis e de longo prazo.</p>
+            <br><br>
+            <a href="https://wa.me/5561992585588" target="_blank" class="btn" style="background-color: #25D366;">
+                <i class="fab fa-whatsapp"></i> Falar com Consultor Agora
+            </a>
         </div>
     </section>
 
-    <!-- O Caminho da Construção -->
-    <section class="section caminho" id="caminho">
-        <div class="container">
-            <h2>O Caminho da Construção: Nossa Metodologia em 5 Passos</h2>
-            <h3>Um processo analítico e estruturado, inspirado em arquitetura, para transformar a aprendizagem organizacional em um ativo estratégico duradouro.</h3>
-            <ol>
-                <li><strong>Diagnóstico:</strong> Análise profunda do estado atual, identificando gaps em governança e eficiência. <i class="fas fa-ruler icon"></i></li>
-                <li><strong>Arquitetura:</strong> Desenho do framework e regras do jogo, criando uma base sólida para a aprendizagem. <i class="fas fa-drafting-compass icon"></i></li>
-                <li><strong>Organização:</strong> Estruturação de trilhas e caminhos de aprendizado, garantindo progressão lógica. <i class="fas fa-network-wired icon"></i></li>
-                <li><strong>Formação de Multiplicadores:</strong> Capacitação em didática e andragogia para treinar instrutores internos, multiplicando impacto. <i class="fas fa-cogs icon"></i></li>
-                <li><strong>Governança:</strong> Estabelecimento de KPIs e melhoria contínua, assegurando sustentabilidade. <i class="fas fa-chart-line icon"></i></li>
-            </ol>
-            <a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank" class="btn">Agende uma Consulta para Iniciar o Processo</a>
-        </div>
-    </section>
-
-    <!-- Para Quem Construímos -->
-    <section class="section publico" id="publico">
-        <div class="container">
-            <h2>Para Quem Construímos: Organizações que Buscam Estrutura</h2>
-            <h3>Atendemos setores que demandam precisão e escalabilidade, transformando aprendizagem em vantagem competitiva.</h3>
-            <div class="grid grid-3">
-                <div>
-                    <i class="fas fa-cogs icon"></i>
-                    <h4>RH</h4>
-                    <p>Equipes que precisam padronizar treinamentos e reduzir dependências pessoais.</p>
-                </div>
-                <div>
-                    <i class="fas fa-university icon"></i>
-                    <h4>Universidades Corporativas</h4>
-                    <p>Instituições que buscam governança para conteúdos e processos.</p>
-                </div>
-                <div>
-                    <i class="fas fa-sitemap icon"></i>
-                    <h4>Lideranças</h4>
-                    <p>Executivos que alinham aprendizagem a estratégias de longo prazo.</p>
-                </div>
-                <div>
-                    <i class="fas fa-building icon"></i>
-                    <h4>Organizações de Alta Complexidade</h4>
-                    <p>Empresas multinacionais ou setores regulados que exigem estruturas robustas.</p>
-                </div>
-            </div>
-            <p>Independentemente do tamanho, ajudamos a construir sistemas que evoluem com o negócio, garantindo retorno sobre investimento sustentável.</p>
-        </div>
-    </section>
-
-    <!-- Rodapé -->
     <footer class="footer">
         <div class="container">
-            <p>Estamos à disposição para compreender sua realidade e propor o melhor caminho educacional.</p>
-            <div class="grid">
+            <p style="margin-bottom: 20px;">Estamos à disposição para propor o melhor caminho educacional para sua organização.</p>
+            <div class="grid grid-3">
                 <div>
-                    <i class="fas fa-envelope icon"></i>
-                    <p>Email: contatoarquiteturaeducacional@gmail.com</p>
+                    <i class="fas fa-envelope"></i>
+                    <p><a href="mailto:contatoarquiteturaeducacional@gmail.com">contatoarquiteturaeducacional@gmail.com</a></p>
                 </div>
                 <div>
-                    <i class="fab fa-whatsapp icon"></i>
-                    <p><a href="https://wa.me/5561992585588" target="_blank" style="color: inherit;">Fale Conosco via WhatsApp</a></p>
+                    <i class="fab fa-whatsapp"></i>
+                    <p><a href="https://wa.me/5561992585588" target="_blank">(61) 99258-5588</a></p>
                 </div>
                 <div>
-                    <i class="fas fa-globe icon"></i>
-                    <p>Website: www.arquiteturaeducacional.com</p>
+                    <i class="fas fa-calendar-check"></i>
+                    <p><a href="https://forms.gle/7Lx5VnrhHM4Vbae47" target="_blank">Agendar Diagnóstico</a></p>
                 </div>
             </div>
-            <p>&copy; 2023 Arquitetura Educacional Corporativa. <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
+            <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Arquitetura Educacional Corporativa.</p>
         </div>
     </footer>
 
-    <script>
-        // Simples script para animação de fade-in nas seções
-        const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        });
-        sections.forEach(section => {
-            section.style.opacity = 0;
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s, transform 0.6s';
-            observer.observe(section);
-        });
-    </script>
 </body>
-
 </html>
