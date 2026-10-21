@@ -1,170 +1,665 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arquitetura Educacional Corporativa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Reset e Base */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #333; background-color: #fff; font-size: 1.15rem; }
-        :root { --azul-escuro: #2C3E50; --azul-claro: #3498DB; --sucesso: #25D366; }
-        
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        
-        /* LOGO AMPLIADA */
-        .logo-container { padding: 40px 0; text-align: center; border-bottom: 1px solid #eee; }
-        .logo { width: 100%; max-width: 650px; height: auto; display: block; margin: 0 auto; }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Consultoria em arquitetura educacional para organizações. Diagnóstico, governança da aprendizagem, trilhas de conhecimento e formação de multiplicadores.">
+  <link rel="canonical" href="https://depsoledade-dot.github.io/site-consultoria/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Arquitetura Educacional Corporativa">
+  <meta property="og:description" content="Método, planejamento e governança para estruturar a aprendizagem organizacional.">
+  <meta property="og:url" content="https://depsoledade-dot.github.io/site-consultoria/">
+  <title>Arquitetura Educacional Corporativa | Consultoria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-        /* HERO AJUSTADO - Títulos em linhas separadas e contraste de estilos */
-        .hero { padding: 80px 0; text-align: center; background-color: #ffffff; }
-        .hero h1 { font-size: 2.8rem; font-weight: 700; color: var(--azul-escuro); margin-bottom: 10px; display: block; }
-        .hero h2 { font-size: 1.8rem; font-weight: 400; font-style: italic; color: var(--azul-escuro); margin-bottom: 25px; display: block; }
-        .hero p { font-size: 1.3rem; max-width: 850px; margin: 0 auto 30px; color: #555; }
-        
-        /* Botões */
-        .btn { display: inline-block; padding: 16px 35px; background-color: var(--azul-escuro); color: #fff; font-weight: 700; text-transform: uppercase; transition: 0.3s; border-radius: 4px; text-decoration: none; border: none; cursor: pointer; font-size: 1.1rem; }
-        .btn:hover { background-color: var(--azul-claro); transform: translateY(-2px); }
-        
-        /* Botão WhatsApp em Destaque */
-        .btn-whatsapp { background-color: var(--sucesso); color: #fff; padding: 20px 40px; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; gap: 12px; margin: 40px auto; max-width: 480px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: 0.3s; }
-        .btn-whatsapp:hover { background-color: #128C7E; transform: scale(1.05); }
+  <style>
+    :root {
+      --navy: #2c3e50;
+      --blue: #2879a8;
+      --blue-pale: #eaf3f8;
+      --green: #126b3a;
+      --ink: #26343d;
+      --muted: #5a6870;
+      --line: #e2e8eb;
+      --soft: #f7f9fa;
+      --white: #fff;
+    }
 
-        /* Seções e Grids */
-        .section { padding: 60px 0; border-bottom: 1px solid #eee; }
-        .section-gray { background-color: #f9f9f9; }
-        .grid { display: grid; gap: 30px; margin-top: 40px; }
-        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-        .grid-5 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
-        
-        .icon { font-size: 2.5rem; color: var(--azul-claro); margin-bottom: 15px; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-        /* Lista de Metodologia */
-        .caminho-lista { list-style: none; counter-reset: item; max-width: 900px; margin: 40px auto 0; text-align: left; }
-        .caminho-lista li { position: relative; margin-bottom: 20px; padding: 20px 20px 20px 80px; background: #fff; border-radius: 8px; border: 1px solid #eee; font-size: 1.15rem; }
-        .caminho-lista li::before { content: counter(item); counter-increment: item; position: absolute; left: 20px; top: 22px; background: var(--azul-escuro); color: #fff; width: 45px; height: 45px; text-align: center; line-height: 45px; font-weight: bold; border-radius: 50%; font-size: 1.2rem; }
-        .caminho-lista li strong { color: var(--azul-escuro); display: block; font-size: 1.4rem; margin-bottom: 5px; }
+    body {
+      margin: 0;
+      color: var(--ink );
+      background: var(--white);
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
 
-        /* Rodapé */
-        .footer { background-color: var(--azul-escuro); color: #fff; padding: 50px 0; text-align: center; }
-        .footer a { color: #fff; text-decoration: underline; }
+    img, video { max-width: 100%; }
+    .container { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
 
-        /* Responsividade Celular */
-        @media (max-width: 768px) { 
-            .hero h1 { font-size: 2rem; } 
-            .hero h2 { font-size: 1.4rem; }
-            .logo { max-width: 90%; }
-            .grid-5 { grid-template-columns: 1fr; }
-        }
-    </style>
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 12px;
+      z-index: 20;
+      padding: 10px 14px;
+      color: var(--navy);
+      background: #fff;
+      border-radius: 6px;
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .brand img {
+      display: block;
+      width: min(360px, 42vw);
+      height: auto;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px 22px;
+    }
+
+    .nav a {
+      color: var(--navy);
+      font-size: .9rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .nav a:hover {
+      color: var(--blue);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* Testeira com o Reel como pano de fundo. A camada escura protege a leitura. */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 68px 0 58px;
+      color: #fff;
+      background: var(--navy);
+    }
+
+    .hero-media {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .hero-media video {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 48%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+      opacity: .38;
+      filter: blur(2px);
+      transform: scale(1.03);
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(44,62,80,1) 0%,
+        rgba(44,62,80,.98) 40%,
+        rgba(44,62,80,.76) 67%,
+        rgba(44,62,80,.55) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 880px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: #c7e5f3;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 850px;
+      margin-bottom: 10px;
+      font-size: clamp(2rem, 4.2vw, 3.35rem);
+      line-height: 1.14;
+      letter-spacing: -.025em;
+    }
+
+    .hero h2 {
+      margin-bottom: 20px;
+      color: #e5edf2;
+      font-size: clamp(1.08rem, 2.1vw, 1.45rem);
+      font-weight: 500;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin-bottom: 25px;
+      color: #f0f4f6;
+      font-size: 1.08rem;
+    }
+
+    .hero .button { margin-bottom: 4px; }
+
+    .video-toggle {
+      margin-top: 22px;
+      padding: 7px 11px;
+      border: 1px solid rgba(255,255,255,.56);
+      border-radius: 5px;
+      color: #fff;
+      background: rgba(20,43,59,.55);
+      font: inherit;
+      font-size: .82rem;
+      cursor: pointer;
+    }
+
+    .video-toggle:hover { background: rgba(255,255,255,.13); }
+
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 22px;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      font: inherit;
+      font-size: .92rem;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color .16s ease, transform .16s ease;
+    }
+
+    .button:hover { transform: translateY(-1px); }
+
+    .button-primary {
+      color: #fff;
+      background: var(--navy);
+    }
+
+    .button-primary:hover { background: #1d5d82; }
+
+    .hero .button-primary {
+      color: var(--navy);
+      background: #fff;
+    }
+
+    .hero .button-primary:hover { background: #eaf3f8; }
+
+    .button-whatsapp {
+      color: #fff;
+      background: var(--green);
+    }
+
+    .button-whatsapp:hover { background: #0d542d; }
+
+    .button:focus-visible,
+    .video-toggle:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #e5b64f;
+      outline-offset: 3px;
+    }
+
+    .section {
+      padding: 58px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-soft { background: var(--soft); }
+
+    .section-title {
+      margin-bottom: 9px;
+      color: var(--navy);
+      font-size: clamp(1.55rem, 3vw, 2.1rem);
+      line-height: 1.25;
+      text-align: center;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin: 0 auto 32px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+    .icon {
+      display: block;
+      margin-bottom: 13px;
+      color: var(--blue);
+      font-size: 2rem;
+    }
+
+    .problem, .pillar {
+      min-width: 0;
+      padding: 22px 18px;
+      text-align: center;
+    }
+
+    .problem h3, .pillar h3 {
+      margin-bottom: 7px;
+      color: var(--navy);
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .problem p, .pillar p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    .pillar { padding: 20px 12px; }
+
+    .process-list {
+      max-width: 880px;
+      margin: 30px auto 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+
+    .process-list li {
+      position: relative;
+      margin-bottom: 14px;
+      padding: 17px 20px 17px 72px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      counter-increment: step;
+    }
+
+    .process-list li::before {
+      content: counter(step);
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--navy);
+      font-weight: 700;
+    }
+
+    .process-list strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--navy);
+      font-size: 1.05rem;
+    }
+
+    .process-list span {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .process-cta { margin-top: 32px; text-align: center; }
+
+    .contact-band {
+      padding: 44px 0;
+      background: var(--blue-pale);
+      text-align: center;
+    }
+
+    .contact-band h2 {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+
+    .contact-band p { margin-bottom: 20px; color: var(--muted); }
+
+    .site-footer {
+      padding: 35px 0 22px;
+      color: #fff;
+      background: var(--navy);
+      text-align: center;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .footer-item { min-width: 0; }
+
+    .footer-icon {
+      display: block;
+      margin-bottom: 7px;
+      color: #b7d9eb;
+      font-size: 1.25rem;
+    }
+
+    .footer-item a {
+      overflow-wrap: anywhere;
+      color: #fff;
+      text-underline-offset: 3px;
+    }
+
+    .copyright {
+      margin: 24px 0 0;
+      color: #d9e1e5;
+      font-size: .85rem;
+    }
+
+    @media (max-width: 850px) {
+      .header-inner { flex-direction: column; }
+      .nav { justify-content: center; }
+      .grid-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .hero-media video { width: 55%; opacity: .34; }
+      .hero-media::after {
+        background: linear-gradient(
+          90deg,
+          rgba(44,62,80,1) 0%,
+          rgba(44,62,80,.96) 38%,
+          rgba(44,62,80,.78) 72%,
+          rgba(44,62,80,.7) 100%
+        );
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container { width: calc(100% - 32px); }
+      .brand img { width: min(320px, 82vw); }
+      .nav { gap: 8px 16px; }
+      .nav a { font-size: .84rem; }
+      .hero { padding: 48px 0 42px; }
+      .hero-media video {
+        top: 0;
+        right: 0;
+        width: 100%;
+        object-position: center 45%;
+        opacity: .18;
+      }
+      .hero-media::after { background: rgba(44,62,80,.86); }
+      .hero-copy { font-size: 1rem; }
+      .button { width: 100%; }
+      .grid-3, .grid-5, .footer-grid { grid-template-columns: 1fr; }
+      .grid { gap: 18px; }
+      .problem, .pillar { padding: 14px 10px; }
+      .process-list li { padding: 15px 14px 15px 64px; }
+      .process-list li::before { left: 13px; }
+      .section { padding: 46px 0; }
+      .video-toggle { width: auto; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+      .hero-media video { display: none; }
+      .hero-media { background: linear-gradient(135deg, #405b6d, #2c3e50); }
+    }
+  </style>
 </head>
+
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-    <header class="logo-container">
-        <div class="container">
-            <img src="logo.png" alt="Arquitetura Educacional Corporativa" class="logo">
-        </div>
-    </header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Arquitetura Educacional Corporativa — início">
+        <img src="ChatGPT%20Image%2014%20de%20jan.%20de%202026%2C%2017_13_42.png" alt="Arquitetura Educacional Corporativa" width="1536" height="1024">
+      </a>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Arquitetura Educacional para Organizações de Alta Complexidade</h1>
-            <h2>Consultoria Estrutural para Empresas, ONGs e Setor Público.</h2>
-            <p>A aprendizagem organizacional precisa de estrutura, não apenas de eventos isolados. Ensinamos organizações a ensinar com método, planejamento e governança.</p>
-            <a href="https://forms.gle/F1iHvNuMeePFioWK8" target="_blank" class="btn">Agendar Reunião Estratégica</a>
-        </div>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#desafios">Desafios</a>
+        <a href="#pilares">Pilares</a>
+        <a href="#metodo">Como trabalhamos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="hero-media" aria-hidden="true">
+        <video id="heroVideo" autoplay muted loop playsinline preload="metadata" tabindex="-1" aria-hidden="true">
+          <source src="reels_lancamento_final.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="container hero-content">
+        <p class="eyebrow">Aprendizagem organizacional com estrutura</p>
+        <h1>Arquitetura Educacional para Organizações de Alta Complexidade</h1>
+        <h2>Consultoria estrutural para empresas, ONGs e setor público.</h2>
+        <p class="hero-copy">A aprendizagem organizacional precisa de estrutura, não apenas de eventos isolados. Ensinamos organizações a ensinar com método, planejamento e governança.</p>
+        <a class="button button-primary" href="https://forms.gle/F1iHvNuMeePFioWK8" target="_blank" rel="noopener noreferrer">Agendar reunião estratégica</a>
+          
+
+        <button class="video-toggle" id="videoToggle" type="button" aria-pressed="false">Pausar vídeo de fundo</button>
+      </div>
     </section>
 
-    <section class="section">
-        <div class="container">
-            <h2 style="text-align: center;">O Custo da Desorganização Educacional</h2>
-            <div class="grid grid-3">
-                <div style="text-align: center;">
-                    <i class="fas fa-exclamation-triangle icon"></i>
-                    <h4>Conhecimento Disperso</h4>
-                    <p>Informações fragmentadas geram inconsistência e perda de produtividade operacional.</p>
-                </div>
-                <div style="text-align: center;">
-                    <i class="fas fa-history icon"></i>
-                    <h4>Falta de Sustentabilidade</h4>
-                    <p>Treinamentos isolados que não se mantêm no longo prazo, gerando gastos recorrentes.</p>
-                </div>
-                <div style="text-align: center;">
-                    <i class="fas fa-user-shield icon"></i>
-                    <h4>Dependência de Pessoas</h4>
-                    <p>O conhecimento sai quando o colaborador sai. Criamos processos que protegem o capital intelectual.</p>
-                </div>
-            </div>
+    <section class="section" id="desafios">
+      <div class="container">
+        <h2 class="section-title">O custo da desorganização educacional</h2>
+        <p class="section-intro">Quando o conhecimento não é organizado, as equipes podem perder tempo procurando informações, repetir treinamentos ou depender demais de poucas pessoas.</p>
+
+        <div class="grid grid-3">
+          <article class="problem">
+            <i class="fas fa-exclamation-triangle icon" aria-hidden="true"></i>
+            <h3>Conhecimento disperso</h3>
+            <p>Informações fragmentadas geram inconsistência e dificultam encontrar orientações confiáveis.</p>
+          </article>
+
+          <article class="problem">
+            <i class="fas fa-history icon" aria-hidden="true"></i>
+            <h3>Falta de continuidade</h3>
+            <p>Treinamentos isolados podem perder força quando não há uma estrutura que os conecte.</p>
+          </article>
+
+          <article class="problem">
+            <i class="fas fa-user-shield icon" aria-hidden="true"></i>
+            <h3>Dependência de pessoas</h3>
+            <p>Quando o conhecimento fica concentrado, mudanças na equipe podem levar saberes importantes junto.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <section class="section section-gray">
-        <div class="container">
-            <h2 style="text-align: center;">Os 5 Pilares do Ecossistema</h2>
-            <div class="grid grid-5">
-                <div style="text-align: center;"><i class="fas fa-balance-scale icon"></i><h4>Governança</h4></div>
-                <div style="text-align: center;"><i class="fas fa-drafting-compass icon"></i><h4>Métodos</h4></div>
-                <div style="text-align: center;"><i class="fas fa-users icon"></i><h4>Pessoas</h4></div>
-                <div style="text-align: center;"><i class="fas fa-book icon"></i><h4>Conteúdos</h4></div>
-                <div style="text-align: center;"><i class="fas fa-cogs icon"></i><h4>Processos</h4></div>
-            </div>
+    <section class="section section-soft" id="pilares">
+      <div class="container">
+        <h2 class="section-title">Os cinco pilares do ecossistema</h2>
+        <p class="section-intro">Uma estrutura de aprendizagem conecta governança, métodos, pessoas, conteúdos e processos.</p>
+
+        <div class="grid grid-5">
+          <article class="pillar">
+            <i class="fas fa-balance-scale icon" aria-hidden="true"></i>
+            <h3>Governança</h3>
+          </article>
+
+          <article class="pillar">
+            <i class="fas fa-drafting-compass icon" aria-hidden="true"></i>
+            <h3>Métodos</h3>
+          </article>
+
+          <article class="pillar">
+            <i class="fas fa-users icon" aria-hidden="true"></i>
+            <h3>Pessoas</h3>
+          </article>
+
+          <article class="pillar">
+            <i class="fas fa-book icon" aria-hidden="true"></i>
+            <h3>Conteúdos</h3>
+          </article>
+
+          <article class="pillar">
+            <i class="fas fa-cogs icon" aria-hidden="true"></i>
+            <h3>Processos</h3>
+          </article>
         </div>
+      </div>
     </section>
 
-    <section class="section">
-        <div class="container">
-            <h2 style="text-align: center;">O Caminho da Construção Estrutural</h2>
-            <ul class="caminho-lista">
-                <li>
-                    <strong>Diagnóstico Educacional</strong>
-                    Análise profunda para identificar falhas de governança, dispersão de conhecimento e necessidades reais.
-                </li>
-                <li>
-                    <strong>Arquitetura do Ecossistema</strong>
-                    Definição da estrutura mestra e das regras de governança para o ensino na sua organização.
-                </li>
-                <li>
-                    <strong>Organização de Trilhas</strong>
-                    Estruturação lógica de caminhos de aprendizado e repositórios de saber acessíveis.
-                </li>
-                <li>
-                    <strong>Formação de Multiplicadores</strong>
-                    Capacitação técnica e andragógica para transformar especialistas internos em instrutores.
-                </li>
-                <li>
-                    <strong>Governança e Resultados</strong>
-                    Monitoramento contínuo por KPIs para assegurar que o sistema permaneça eficiente.
-                </li>
-            </ul>
+    <section class="section" id="metodo">
+      <div class="container">
+        <h2 class="section-title">O caminho da construção estrutural</h2>
+        <p class="section-intro">O trabalho começa entendendo o cenário da organização e pode envolver estas etapas:</p>
 
-            <a href="https://wa.me/5561992585588" class="btn-whatsapp" target="_blank">
-                <i class="fab fa-whatsapp"></i> FALAR COM CONSULTOR AGORA
-            </a>
+        <ol class="process-list">
+          <li>
+            <strong>Diagnóstico educacional</strong>
+            <span>Análise de necessidades, governança e dispersão do conhecimento.</span>
+          </li>
+          <li>
+            <strong>Arquitetura do ecossistema</strong>
+            <span>Definição da estrutura e das regras de governança da aprendizagem.</span>
+          </li>
+          <li>
+            <strong>Organização de trilhas</strong>
+            <span>Estruturação de caminhos de aprendizagem e repositórios acessíveis.</span>
+          </li>
+          <li>
+            <strong>Formação de multiplicadores</strong>
+            <span>Capacitação de especialistas internos para compartilhar conhecimento com método.</span>
+          </li>
+          <li>
+            <strong>Governança e resultados</strong>
+            <span>Acompanhamento por indicadores para revisar e manter o sistema eficiente.</span>
+          </li>
+        </ol>
+
+        <div class="process-cta">
+          <a class="button button-whatsapp" href="https://wa.me/5561992585588" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Falar com consultor pelo WhatsApp
+          </a>
         </div>
+      </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="grid grid-3" style="margin-top: 0;">
-                <div>
-                    <i class="fab fa-whatsapp" style="font-size: 1.5rem; margin-bottom: 5px;"></i>
-                    <p><a href="https://wa.me/5561992585588" target="_blank">(61) 99258-5588</a></p>
-                </div>
-                <div>
-                    <i class="fas fa-envelope" style="font-size: 1.5rem; margin-bottom: 5px;"></i>
-                    <p><a href="mailto:contatoarquiteturaeducacional@gmail.com">contatoarquiteturaeducacional@gmail.com</a></p>
-                </div>
-                <div>
-                    <i class="fas fa-calendar-alt" style="font-size: 1.5rem; margin-bottom: 5px;"></i>
-                    <p><a href="https://forms.gle/F1iHvNuMeePFioWK8" target="_blank">Agendar Reunião</a></p>
-                </div>
-            </div>
-            <p style="margin-top: 35px; font-size: 1rem; opacity: 0.8;">&copy; 2026 Arquitetura Educacional Corporativa.</p>
-        </div>
-    </footer>
+    <section class="contact-band" id="contato">
+      <div class="container">
+        <h2>Vamos conversar sobre a sua organização?</h2>
+        <p>Escolha um canal e conte um pouco sobre o desafio que deseja resolver.</p>
+        <a class="button button-primary" href="https://forms.gle/F1iHvNuMeePFioWK8" target="_blank" rel="noopener noreferrer">Agendar reunião estratégica</a>
+      </div>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-item">
+          <i class="fab fa-whatsapp footer-icon" aria-hidden="true"></i>
+          <a href="https://wa.me/5561992585588" target="_blank" rel="noopener noreferrer">(61 ) 99258-5588</a>
+        </div>
+
+        <div class="footer-item">
+          <i class="fas fa-envelope footer-icon" aria-hidden="true"></i>
+          <a href="mailto:contatoarquiteturaeducacional@gmail.com">contatoarquiteturaeducacional@gmail.com</a>
+        </div>
+
+        <div class="footer-item">
+          <i class="fas fa-calendar-alt footer-icon" aria-hidden="true"></i>
+          <a href="https://forms.gle/F1iHvNuMeePFioWK8" target="_blank" rel="noopener noreferrer">Agendar reunião</a>
+        </div>
+      </div>
+
+      <p class="copyright">© 2026 Arquitetura Educacional Corporativa.</p>
+    </div>
+  </footer>
+
+  <script>
+    // O vídeo toca sem som na testeira. O visitante pode pausar ou retomar.
+    const heroVideo = document.getElementById('heroVideo' );
+    const videoToggle = document.getElementById('videoToggle');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function syncVideoButton() {
+      const isPlaying = !heroVideo.paused;
+      videoToggle.textContent = isPlaying ? 'Pausar vídeo de fundo' : 'Reproduzir vídeo de fundo';
+      videoToggle.setAttribute('aria-pressed', String(isPlaying));
+    }
+
+    videoToggle.addEventListener('click', async () => {
+      if (heroVideo.paused) {
+        try {
+          await heroVideo.play();
+        } catch (error) {
+          syncVideoButton();
+        }
+      } else {
+        heroVideo.pause();
+      }
+
+      syncVideoButton();
+    });
+
+    heroVideo.addEventListener('play', syncVideoButton);
+    heroVideo.addEventListener('pause', syncVideoButton);
+
+    if (prefersReducedMotion.matches) {
+      heroVideo.pause();
+    } else {
+      heroVideo.play().catch(() => syncVideoButton());
+    }
+
+    syncVideoButton();
+  </script>
 </body>
-
 </html>
