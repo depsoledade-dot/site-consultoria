@@ -28,411 +28,98 @@
       --soft: #f7f9fa;
       --white: #fff;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
-      color: var(--ink );
+      color: var(--ink);
       background: var(--white);
       font-family: "Montserrat", Arial, sans-serif;
       font-size: 16px;
       line-height: 1.65;
     }
-
     img, video { max-width: 100%; }
     .container { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
-
-    .skip-link {
-      position: absolute;
-      top: -60px;
-      left: 12px;
-      z-index: 20;
-      padding: 10px 14px;
-      color: var(--navy);
-      background: #fff;
-      border-radius: 6px;
-    }
-
+    .skip-link { position: absolute; top: -60px; left: 12px; z-index: 20; padding: 10px 14px; color: var(--navy); background: #fff; border-radius: 6px; }
     .skip-link:focus { top: 12px; }
 
-    .site-header {
-      background: #fff;
-      border-bottom: 1px solid var(--line);
-    }
+    .site-header { background: #fff; border-bottom: 1px solid var(--line); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 0; }
+    .brand { display: inline-flex; align-items: center; text-decoration: none; }
+    .brand img { display: block; width: min(360px, 42vw); height: 88px; object-fit: cover; object-position: center; }
+    .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 10px 22px; }
+    .nav a { color: var(--navy); font-size: .9rem; font-weight: 650; text-decoration: none; }
+    .nav a:hover { color: var(--blue); text-decoration: underline; text-underline-offset: 4px; }
 
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 14px 0;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-    }
-
-    .brand img {
-      display: block;
-      width: min(360px, 42vw);
-      height: auto;
-    }
-
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 10px 22px;
-    }
-
-    .nav a {
-      color: var(--navy);
-      font-size: .9rem;
-      font-weight: 650;
-      text-decoration: none;
-    }
-
-    .nav a:hover {
-      color: var(--blue);
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-
-    /* Testeira com o Reel como pano de fundo. A camada escura protege a leitura. */
-    .hero {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      padding: 68px 0 58px;
-      color: #fff;
-      background: var(--navy);
-    }
-
-    .hero-media {
-      position: absolute;
-      z-index: -1;
-      inset: 0;
-      overflow: hidden;
-      background: var(--navy);
-    }
-
-    .hero-media video {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 48%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 45%;
-      opacity: .38;
-      filter: blur(2px);
-      transform: scale(1.03);
-    }
-
-    .hero-media::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(44,62,80,1) 0%,
-        rgba(44,62,80,.98) 40%,
-        rgba(44,62,80,.76) 67%,
-        rgba(44,62,80,.55) 100%
-      );
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 880px;
-    }
-
-    .eyebrow {
-      margin: 0 0 14px;
-      color: #c7e5f3;
-      font-size: .8rem;
-      font-weight: 700;
-      letter-spacing: .11em;
-      text-transform: uppercase;
-    }
-
+    /* Testeira com animação arquitetônica em tela inteira e gradiente de leitura. */
+    .hero { position: relative; isolation: isolate; overflow: hidden; padding: 68px 0 58px; color: #fff; background: var(--navy); }
+    .hero-media { position: absolute; z-index: -1; inset: 0; overflow: hidden; background: var(--navy); }
+    .hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% center; }
+    .hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(30,47,63,.86) 0%, rgba(30,47,63,.70) 48%, rgba(30,47,63,.42) 100%); }
+    .hero-content { position: relative; z-index: 1; max-width: 880px; }
+    .eyebrow { margin: 0 0 14px; color: #c7e5f3; font-size: .8rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
     h1, h2, h3, p { margin-top: 0; }
-
-    h1 {
-      max-width: 850px;
-      margin-bottom: 10px;
-      font-size: clamp(2rem, 4.2vw, 3.35rem);
-      line-height: 1.14;
-      letter-spacing: -.025em;
-    }
-
-    .hero h2 {
-      margin-bottom: 20px;
-      color: #e5edf2;
-      font-size: clamp(1.08rem, 2.1vw, 1.45rem);
-      font-weight: 500;
-    }
-
-    .hero-copy {
-      max-width: 760px;
-      margin-bottom: 25px;
-      color: #f0f4f6;
-      font-size: 1.08rem;
-    }
-
+    h1 { max-width: 850px; margin-bottom: 10px; font-size: clamp(2rem, 4.2vw, 3.35rem); line-height: 1.14; letter-spacing: -.025em; }
+    .hero h2 { margin-bottom: 20px; color: #e5edf2; font-size: clamp(1.08rem, 2.1vw, 1.45rem); font-weight: 500; }
+    .hero-copy { max-width: 760px; margin-bottom: 25px; color: #f0f4f6; font-size: 1.08rem; }
     .hero .button { margin-bottom: 4px; }
-
-    .video-toggle {
-      margin-top: 22px;
-      padding: 7px 11px;
-      border: 1px solid rgba(255,255,255,.56);
-      border-radius: 5px;
-      color: #fff;
-      background: rgba(20,43,59,.55);
-      font: inherit;
-      font-size: .82rem;
-      cursor: pointer;
-    }
-
+    .video-toggle { margin-top: 22px; padding: 7px 11px; border: 1px solid rgba(255,255,255,.56); border-radius: 5px; color: #fff; background: rgba(20,43,59,.55); font: inherit; font-size: .82rem; cursor: pointer; }
     .video-toggle:hover { background: rgba(255,255,255,.13); }
 
-    .button {
-      display: inline-flex;
-      min-height: 46px;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      padding: 12px 22px;
-      border: 2px solid transparent;
-      border-radius: 5px;
-      font: inherit;
-      font-size: .92rem;
-      font-weight: 700;
-      text-align: center;
-      text-decoration: none;
-      transition: background-color .16s ease, transform .16s ease;
-    }
-
+    .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: 9px; padding: 12px 22px; border: 2px solid transparent; border-radius: 5px; font: inherit; font-size: .92rem; font-weight: 700; text-align: center; text-decoration: none; transition: background-color .16s ease, transform .16s ease; }
     .button:hover { transform: translateY(-1px); }
-
-    .button-primary {
-      color: #fff;
-      background: var(--navy);
-    }
-
+    .button-primary { color: #fff; background: var(--navy); }
     .button-primary:hover { background: #1d5d82; }
-
-    .hero .button-primary {
-      color: var(--navy);
-      background: #fff;
-    }
-
+    .hero .button-primary { color: var(--navy); background: #fff; }
     .hero .button-primary:hover { background: #eaf3f8; }
-
-    .button-whatsapp {
-      color: #fff;
-      background: var(--green);
-    }
-
+    .button-whatsapp { color: #fff; background: var(--green); }
     .button-whatsapp:hover { background: #0d542d; }
+    .button:focus-visible, .video-toggle:focus-visible, a:focus-visible { outline: 3px solid #e5b64f; outline-offset: 3px; }
 
-    .button:focus-visible,
-    .video-toggle:focus-visible,
-    a:focus-visible {
-      outline: 3px solid #e5b64f;
-      outline-offset: 3px;
-    }
-
-    .section {
-      padding: 58px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
+    .section { padding: 58px 0; border-bottom: 1px solid var(--line); }
     .section-soft { background: var(--soft); }
-
-    .section-title {
-      margin-bottom: 9px;
-      color: var(--navy);
-      font-size: clamp(1.55rem, 3vw, 2.1rem);
-      line-height: 1.25;
-      text-align: center;
-    }
-
-    .section-intro {
-      max-width: 760px;
-      margin: 0 auto 32px;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    .grid {
-      display: grid;
-      gap: 24px;
-      margin-top: 32px;
-    }
-
+    .section-title { margin-bottom: 9px; color: var(--navy); font-size: clamp(1.55rem, 3vw, 2.1rem); line-height: 1.25; text-align: center; }
+    .section-intro { max-width: 760px; margin: 0 auto 32px; color: var(--muted); text-align: center; }
+    .grid { display: grid; gap: 24px; margin-top: 32px; }
     .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-
-    .icon {
-      display: block;
-      margin-bottom: 13px;
-      color: var(--blue);
-      font-size: 2rem;
-    }
-
-    .problem, .pillar {
-      min-width: 0;
-      padding: 22px 18px;
-      text-align: center;
-    }
-
-    .problem h3, .pillar h3 {
-      margin-bottom: 7px;
-      color: var(--navy);
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-
-    .problem p, .pillar p {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: .93rem;
-    }
-
+    .icon { display: block; margin-bottom: 13px; color: var(--blue); font-size: 2rem; }
+    .problem, .pillar { min-width: 0; padding: 22px 18px; text-align: center; }
+    .problem h3, .pillar h3 { margin-bottom: 7px; color: var(--navy); font-size: 1rem; line-height: 1.4; }
+    .problem p, .pillar p { margin-bottom: 0; color: var(--muted); font-size: .93rem; }
     .pillar { padding: 20px 12px; }
 
-    .process-list {
-      max-width: 880px;
-      margin: 30px auto 0;
-      padding: 0;
-      list-style: none;
-      counter-reset: step;
-    }
-
-    .process-list li {
-      position: relative;
-      margin-bottom: 14px;
-      padding: 17px 20px 17px 72px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fff;
-      counter-increment: step;
-    }
-
-    .process-list li::before {
-      content: counter(step);
-      position: absolute;
-      top: 18px;
-      left: 18px;
-      display: grid;
-      width: 38px;
-      height: 38px;
-      place-items: center;
-      border-radius: 50%;
-      color: #fff;
-      background: var(--navy);
-      font-weight: 700;
-    }
-
-    .process-list strong {
-      display: block;
-      margin-bottom: 3px;
-      color: var(--navy);
-      font-size: 1.05rem;
-    }
-
-    .process-list span {
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
+    .process-list { max-width: 880px; margin: 30px auto 0; padding: 0; list-style: none; counter-reset: step; }
+    .process-list li { position: relative; margin-bottom: 14px; padding: 17px 20px 17px 72px; border: 1px solid var(--line); border-radius: 8px; background: #fff; counter-increment: step; }
+    .process-list li::before { content: counter(step); position: absolute; top: 18px; left: 18px; display: grid; width: 38px; height: 38px; place-items: center; border-radius: 50%; color: #fff; background: var(--navy); font-weight: 700; }
+    .process-list strong { display: block; margin-bottom: 3px; color: var(--navy); font-size: 1.05rem; }
+    .process-list span { color: var(--muted); font-size: .95rem; }
     .process-cta { margin-top: 32px; text-align: center; }
 
-    .contact-band {
-      padding: 44px 0;
-      background: var(--blue-pale);
-      text-align: center;
-    }
-
-    .contact-band h2 {
-      margin-bottom: 8px;
-      color: var(--navy);
-      font-size: clamp(1.5rem, 3vw, 2rem);
-    }
-
+    .contact-band { padding: 44px 0; background: var(--blue-pale); text-align: center; }
+    .contact-band h2 { margin-bottom: 8px; color: var(--navy); font-size: clamp(1.5rem, 3vw, 2rem); }
     .contact-band p { margin-bottom: 20px; color: var(--muted); }
-
-    .site-footer {
-      padding: 35px 0 22px;
-      color: #fff;
-      background: var(--navy);
-      text-align: center;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
+    .site-footer { padding: 35px 0 22px; color: #fff; background: var(--navy); text-align: center; }
+    .footer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
     .footer-item { min-width: 0; }
-
-    .footer-icon {
-      display: block;
-      margin-bottom: 7px;
-      color: #b7d9eb;
-      font-size: 1.25rem;
-    }
-
-    .footer-item a {
-      overflow-wrap: anywhere;
-      color: #fff;
-      text-underline-offset: 3px;
-    }
-
-    .copyright {
-      margin: 24px 0 0;
-      color: #d9e1e5;
-      font-size: .85rem;
-    }
+    .footer-icon { display: block; margin-bottom: 7px; color: #b7d9eb; font-size: 1.25rem; }
+    .footer-item a { overflow-wrap: anywhere; color: #fff; text-underline-offset: 3px; }
+    .copyright { margin: 24px 0 0; color: #d9e1e5; font-size: .85rem; }
 
     @media (max-width: 850px) {
       .header-inner { flex-direction: column; }
       .nav { justify-content: center; }
       .grid-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .hero-media video { width: 55%; opacity: .34; }
-      .hero-media::after {
-        background: linear-gradient(
-          90deg,
-          rgba(44,62,80,1) 0%,
-          rgba(44,62,80,.96) 38%,
-          rgba(44,62,80,.78) 72%,
-          rgba(44,62,80,.7) 100%
-        );
-      }
+      .hero-media::after { background: linear-gradient(90deg, rgba(44,62,80,1) 0%, rgba(44,62,80,.96) 38%, rgba(44,62,80,.78) 72%, rgba(44,62,80,.7) 100%); }
     }
-
     @media (max-width: 600px) {
       .container { width: calc(100% - 32px); }
-      .brand img { width: min(320px, 82vw); }
+      .brand img { width: min(320px, 82vw); height: 78px; }
       .nav { gap: 8px 16px; }
       .nav a { font-size: .84rem; }
       .hero { padding: 48px 0 42px; }
-      .hero-media video {
-        top: 0;
-        right: 0;
-        width: 100%;
-        object-position: center 45%;
-        opacity: .18;
-      }
-      .hero-media::after { background: rgba(44,62,80,.86); }
+      .hero-media video { object-position: 76% center; }
+      .hero-media::after { content: ""; position: absolute; inset: 0; background: rgba(30,47,63,.68); }
       .hero-copy { font-size: 1rem; }
       .button { width: 100%; }
       .grid-3, .grid-5, .footer-grid { grid-template-columns: 1fr; }
@@ -443,19 +130,14 @@
       .section { padding: 46px 0; }
       .video-toggle { width: auto; }
     }
-
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        transition-duration: .01ms !important;
-        animation-duration: .01ms !important;
-      }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
       .hero-media video { display: none; }
       .hero-media { background: linear-gradient(135deg, #405b6d, #2c3e50); }
     }
   </style>
 </head>
-
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
@@ -464,7 +146,6 @@
       <a class="brand" href="#inicio" aria-label="Arquitetura Educacional Corporativa — início">
         <img src="ChatGPT%20Image%2014%20de%20jan.%20de%202026%2C%2017_13_42.png" alt="Arquitetura Educacional Corporativa" width="1536" height="1024">
       </a>
-
       <nav class="nav" aria-label="Navegação principal">
         <a href="#desafios">Desafios</a>
         <a href="#pilares">Pilares</a>
@@ -478,18 +159,16 @@
     <section class="hero" id="inicio">
       <div class="hero-media" aria-hidden="true">
         <video id="heroVideo" autoplay muted loop playsinline preload="metadata" tabindex="-1" aria-hidden="true">
-          <source src="reels_lancamento_final.mp4" type="video/mp4">
+          <source src="animacao_arquitetura_fundo.mp4" type="video/mp4">
         </video>
       </div>
-
       <div class="container hero-content">
         <p class="eyebrow">Aprendizagem organizacional com estrutura</p>
         <h1>Arquitetura Educacional para Organizações de Alta Complexidade</h1>
         <h2>Consultoria estrutural para empresas, ONGs e setor público.</h2>
         <p class="hero-copy">A aprendizagem organizacional precisa de estrutura, não apenas de eventos isolados. Ensinamos organizações a ensinar com método, planejamento e governança.</p>
         <a class="button button-primary" href="https://forms.gle/F1iHvNuMeePFioWK8" target="_blank" rel="noopener noreferrer">Agendar reunião estratégica</a>
-          
-
+        <br>
         <button class="video-toggle" id="videoToggle" type="button" aria-pressed="false">Pausar vídeo de fundo</button>
       </div>
     </section>
@@ -498,20 +177,17 @@
       <div class="container">
         <h2 class="section-title">O custo da desorganização educacional</h2>
         <p class="section-intro">Quando o conhecimento não é organizado, as equipes podem perder tempo procurando informações, repetir treinamentos ou depender demais de poucas pessoas.</p>
-
         <div class="grid grid-3">
           <article class="problem">
             <i class="fas fa-exclamation-triangle icon" aria-hidden="true"></i>
             <h3>Conhecimento disperso</h3>
             <p>Informações fragmentadas geram inconsistência e dificultam encontrar orientações confiáveis.</p>
           </article>
-
           <article class="problem">
             <i class="fas fa-history icon" aria-hidden="true"></i>
             <h3>Falta de continuidade</h3>
             <p>Treinamentos isolados podem perder força quando não há uma estrutura que os conecte.</p>
           </article>
-
           <article class="problem">
             <i class="fas fa-user-shield icon" aria-hidden="true"></i>
             <h3>Dependência de pessoas</h3>
@@ -525,32 +201,12 @@
       <div class="container">
         <h2 class="section-title">Os cinco pilares do ecossistema</h2>
         <p class="section-intro">Uma estrutura de aprendizagem conecta governança, métodos, pessoas, conteúdos e processos.</p>
-
         <div class="grid grid-5">
-          <article class="pillar">
-            <i class="fas fa-balance-scale icon" aria-hidden="true"></i>
-            <h3>Governança</h3>
-          </article>
-
-          <article class="pillar">
-            <i class="fas fa-drafting-compass icon" aria-hidden="true"></i>
-            <h3>Métodos</h3>
-          </article>
-
-          <article class="pillar">
-            <i class="fas fa-users icon" aria-hidden="true"></i>
-            <h3>Pessoas</h3>
-          </article>
-
-          <article class="pillar">
-            <i class="fas fa-book icon" aria-hidden="true"></i>
-            <h3>Conteúdos</h3>
-          </article>
-
-          <article class="pillar">
-            <i class="fas fa-cogs icon" aria-hidden="true"></i>
-            <h3>Processos</h3>
-          </article>
+          <article class="pillar"><i class="fas fa-balance-scale icon" aria-hidden="true"></i><h3>Governança</h3></article>
+          <article class="pillar"><i class="fas fa-drafting-compass icon" aria-hidden="true"></i><h3>Métodos</h3></article>
+          <article class="pillar"><i class="fas fa-users icon" aria-hidden="true"></i><h3>Pessoas</h3></article>
+          <article class="pillar"><i class="fas fa-book icon" aria-hidden="true"></i><h3>Conteúdos</h3></article>
+          <article class="pillar"><i class="fas fa-cogs icon" aria-hidden="true"></i><h3>Processos</h3></article>
         </div>
       </div>
     </section>
@@ -559,35 +215,15 @@
       <div class="container">
         <h2 class="section-title">O caminho da construção estrutural</h2>
         <p class="section-intro">O trabalho começa entendendo o cenário da organização e pode envolver estas etapas:</p>
-
         <ol class="process-list">
-          <li>
-            <strong>Diagnóstico educacional</strong>
-            <span>Análise de necessidades, governança e dispersão do conhecimento.</span>
-          </li>
-          <li>
-            <strong>Arquitetura do ecossistema</strong>
-            <span>Definição da estrutura e das regras de governança da aprendizagem.</span>
-          </li>
-          <li>
-            <strong>Organização de trilhas</strong>
-            <span>Estruturação de caminhos de aprendizagem e repositórios acessíveis.</span>
-          </li>
-          <li>
-            <strong>Formação de multiplicadores</strong>
-            <span>Capacitação de especialistas internos para compartilhar conhecimento com método.</span>
-          </li>
-          <li>
-            <strong>Governança e resultados</strong>
-            <span>Acompanhamento por indicadores para revisar e manter o sistema eficiente.</span>
-          </li>
+          <li><strong>Diagnóstico educacional</strong><span>Análise de necessidades, governança e dispersão do conhecimento.</span></li>
+          <li><strong>Arquitetura do ecossistema</strong><span>Definição da estrutura e das regras de governança da aprendizagem.</span></li>
+          <li><strong>Organização de trilhas</strong><span>Estruturação de caminhos de aprendizagem e repositórios acessíveis.</span></li>
+          <li><strong>Formação de multiplicadores</strong><span>Capacitação de especialistas internos para compartilhar conhecimento com método.</span></li>
+          <li><strong>Governança e resultados</strong><span>Acompanhamento por indicadores para revisar e manter o sistema eficiente.</span></li>
         </ol>
-
         <div class="process-cta">
-          <a class="button button-whatsapp" href="https://wa.me/5561992585588" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-whatsapp" aria-hidden="true"></i>
-            Falar com consultor pelo WhatsApp
-          </a>
+          <a class="button button-whatsapp" href="https://wa.me/5561992585588" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Falar com consultor pelo WhatsApp</a>
         </div>
       </div>
     </section>
@@ -604,29 +240,17 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-item">
-          <i class="fab fa-whatsapp footer-icon" aria-hidden="true"></i>
-          <a href="https://wa.me/5561992585588" target="_blank" rel="noopener noreferrer">(61 ) 99258-5588</a>
-        </div>
-
-        <div class="footer-item">
-          <i class="fas fa-envelope footer-icon" aria-hidden="true"></i>
-          <a href="mailto:contatoarquiteturaeducacional@gmail.com">contatoarquiteturaeducacional@gmail.com</a>
-        </div>
-
-        <div class="footer-item">
-          <i class="fas fa-calendar-alt footer-icon" aria-hidden="true"></i>
-          <a href="https://forms.gle/F1iHvNuMeePFioWK8" target="_blank" rel="noopener noreferrer">Agendar reunião</a>
-        </div>
+        <div class="footer-item"><i class="fab fa-whatsapp footer-icon" aria-hidden="true"></i><a href="https://wa.me/5561992585588" target="_blank" rel="noopener noreferrer">(61) 99258-5588</a></div>
+        <div class="footer-item"><i class="fas fa-envelope footer-icon" aria-hidden="true"></i><a href="mailto:contatoarquiteturaeducacional@gmail.com">contatoarquiteturaeducacional@gmail.com</a></div>
+        <div class="footer-item"><i class="fas fa-calendar-alt footer-icon" aria-hidden="true"></i><a href="https://forms.gle/F1iHvNuMeePFioWK8" target="_blank" rel="noopener noreferrer">Agendar reunião</a></div>
       </div>
-
       <p class="copyright">© 2026 Arquitetura Educacional Corporativa.</p>
     </div>
   </footer>
 
   <script>
     // O vídeo toca sem som na testeira. O visitante pode pausar ou retomar.
-    const heroVideo = document.getElementById('heroVideo' );
+    const heroVideo = document.getElementById('heroVideo');
     const videoToggle = document.getElementById('videoToggle');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -638,18 +262,12 @@
 
     videoToggle.addEventListener('click', async () => {
       if (heroVideo.paused) {
-        try {
-          await heroVideo.play();
-        } catch (error) {
-          syncVideoButton();
-        }
+        try { await heroVideo.play(); } catch (error) { syncVideoButton(); }
       } else {
         heroVideo.pause();
       }
-
       syncVideoButton();
     });
-
     heroVideo.addEventListener('play', syncVideoButton);
     heroVideo.addEventListener('pause', syncVideoButton);
 
@@ -658,7 +276,6 @@
     } else {
       heroVideo.play().catch(() => syncVideoButton());
     }
-
     syncVideoButton();
   </script>
 </body>
