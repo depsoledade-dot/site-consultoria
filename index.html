@@ -43,7 +43,7 @@
     .skip-link { position: absolute; top: -60px; left: 12px; z-index: 20; padding: 10px 14px; color: var(--navy); background: #fff; border-radius: 6px; }
     .skip-link:focus { top: 12px; }
 
-    .site-header { background: #fff; border-bottom: 1px solid var(--line); }
+    .site-header { background: #f3f3f3; border-bottom: 1px solid #e6e6e6; }
     .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 0; }
     .brand { display: inline-flex; align-items: center; text-decoration: none; }
     .brand img { display: block; width: min(360px, 42vw); height: 88px; object-fit: cover; object-position: center; }
@@ -62,9 +62,19 @@
     h1 { max-width: 850px; margin-bottom: 10px; font-size: clamp(2rem, 4.2vw, 3.35rem); line-height: 1.14; letter-spacing: -.025em; }
     .hero h2 { margin-bottom: 20px; color: #e5edf2; font-size: clamp(1.08rem, 2.1vw, 1.45rem); font-weight: 500; }
     .hero-copy { max-width: 760px; margin-bottom: 25px; color: #f0f4f6; font-size: 1.08rem; }
-    .hero .button { margin-bottom: 4px; }
-    .video-toggle { margin-top: 22px; padding: 7px 11px; border: 1px solid rgba(255,255,255,.56); border-radius: 5px; color: #fff; background: rgba(20,43,59,.55); font: inherit; font-size: .82rem; cursor: pointer; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0 4px; }
+    .button-promo { border-color: rgba(255,255,255,.78); color: #fff; background: rgba(16,36,51,.42); cursor: pointer; }
+    .button-promo:hover { background: rgba(255,255,255,.14); }
+    .video-toggle { margin-top: 18px; padding: 7px 11px; border: 1px solid rgba(255,255,255,.56); border-radius: 5px; color: #fff; background: rgba(20,43,59,.55); font: inherit; font-size: .82rem; cursor: pointer; }
     .video-toggle:hover { background: rgba(255,255,255,.13); }
+
+    .promo-dialog { position: fixed; width: max-content; max-width: 94vw; max-height: 94vh; padding: 0; overflow: auto; border: 0; border-radius: 12px; color: #fff; background: #132638; box-shadow: 0 18px 64px rgba(0,0,0,.45); }
+    .promo-dialog::backdrop { background: rgba(9,20,30,.82); }
+    .promo-dialog__header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 16px; }
+    .promo-dialog__header h2 { margin: 0; font-size: 1rem; }
+    .promo-close { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid rgba(255,255,255,.42); border-radius: 50%; color: #fff; background: transparent; font-size: 1.45rem; cursor: pointer; }
+    .promo-close:hover { background: rgba(255,255,255,.13); }
+    .promo-player { display: block; width: auto; height: auto; max-width: 90vw; max-height: calc(92vh - 62px); margin: 0 auto; background: #000; }
 
     .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: 9px; padding: 12px 22px; border: 2px solid transparent; border-radius: 5px; font: inherit; font-size: .92rem; font-weight: 700; text-align: center; text-decoration: none; transition: background-color .16s ease, transform .16s ease; }
     .button:hover { transform: translateY(-1px); }
@@ -122,6 +132,7 @@
       .hero-media::after { content: ""; position: absolute; inset: 0; background: rgba(30,47,63,.68); }
       .hero-copy { font-size: 1rem; }
       .button { width: 100%; }
+      .hero-actions { flex-direction: column; }
       .grid-3, .grid-5, .footer-grid { grid-template-columns: 1fr; }
       .grid { gap: 18px; }
       .problem, .pillar { padding: 14px 10px; }
@@ -167,11 +178,24 @@
         <h1>Arquitetura Educacional para Organizações de Alta Complexidade</h1>
         <h2>Consultoria estrutural para empresas, ONGs e setor público.</h2>
         <p class="hero-copy">A aprendizagem organizacional precisa de estrutura, não apenas de eventos isolados. Ensinamos organizações a ensinar com método, planejamento e governança.</p>
-        <a class="button button-primary" href="https://forms.gle/F1iHvNuMeePFioWK8" target="_blank" rel="noopener noreferrer">Agendar reunião estratégica</a>
-        <br>
-        <button class="video-toggle" id="videoToggle" type="button" aria-pressed="false">Pausar vídeo de fundo</button>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://forms.gle/F1iHvNuMeePFioWK8" target="_blank" rel="noopener noreferrer">Agendar reunião estratégica</a>
+          <button class="button button-promo" id="openPromo" type="button"><i class="fas fa-play" aria-hidden="true"></i> Assistir vídeo promocional</button>
+        </div>
+        <button class="video-toggle" id="videoToggle" type="button" aria-pressed="false">Pausar animação de fundo</button>
       </div>
     </section>
+
+    <dialog class="promo-dialog" id="promoDialog" aria-labelledby="promoDialogTitle">
+      <div class="promo-dialog__header">
+        <h2 id="promoDialogTitle">Vídeo promocional</h2>
+        <button class="promo-close" id="closePromo" type="button" aria-label="Fechar vídeo">&times;</button>
+      </div>
+      <video class="promo-player" id="promoVideo" controls playsinline preload="metadata">
+        <source src="reels_lancamento_final.mp4" type="video/mp4">
+        Seu navegador não conseguiu carregar o vídeo promocional.
+      </video>
+    </dialog>
 
     <section class="section" id="desafios">
       <div class="container">
@@ -277,6 +301,31 @@
       heroVideo.play().catch(() => syncVideoButton());
     }
     syncVideoButton();
+
+    // O botão abre o Reel promocional com áudio e controles nativos.
+    const openPromo = document.getElementById('openPromo');
+    const promoDialog = document.getElementById('promoDialog');
+    const promoVideo = document.getElementById('promoVideo');
+    const closePromo = document.getElementById('closePromo');
+
+    openPromo.addEventListener('click', async () => {
+      promoDialog.showModal();
+      try { await promoVideo.play(); } catch (error) { /* O visitante pode iniciar pelos controles. */ }
+    });
+
+    function closePromoDialog() {
+      if (promoDialog.open) promoDialog.close();
+    }
+
+    closePromo.addEventListener('click', closePromoDialog);
+    promoDialog.addEventListener('close', () => {
+      promoVideo.pause();
+      promoVideo.currentTime = 0;
+      openPromo.focus();
+    });
+    promoDialog.addEventListener('click', (event) => {
+      if (event.target === promoDialog) closePromoDialog();
+    });
   </script>
 </body>
 </html>
