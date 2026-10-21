@@ -75,6 +75,7 @@
     .promo-close { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid rgba(255,255,255,.42); border-radius: 50%; color: #fff; background: transparent; font-size: 1.45rem; cursor: pointer; }
     .promo-close:hover { background: rgba(255,255,255,.13); }
     .promo-player { display: block; width: auto; height: auto; max-width: 90vw; max-height: calc(92vh - 62px); margin: 0 auto; background: #000; }
+    .promo-player:fullscreen, .promo-player:-webkit-full-screen { width: 100vw; height: 100vh; max-width: 100vw; max-height: 100vh; object-fit: contain; background: #000; }
 
     .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: 9px; padding: 12px 22px; border: 2px solid transparent; border-radius: 5px; font: inherit; font-size: .92rem; font-weight: 700; text-align: center; text-decoration: none; transition: background-color .16s ease, transform .16s ease; }
     .button:hover { transform: translateY(-1px); }
@@ -308,9 +309,26 @@
     const promoVideo = document.getElementById('promoVideo');
     const closePromo = document.getElementById('closePromo');
 
-    openPromo.addEventListener('click', async () => {
+    openPromo.addEventListener('click', () => {
       promoDialog.showModal();
-      try { await promoVideo.play(); } catch (error) { /* O visitante pode iniciar pelos controles. */ }
+      promoVideo.currentTime = 0;
+
+      // O pedido acontece direto no clique; iPhone usa o player nativo do Safari.
+      if (typeof promoVideo.webkitEnterFullscreen === 'function') {
+        try { promoVideo.webkitEnterFullscreen(); } catch (error) { /* O player permanece na janela. */ }
+      } else if (typeof promoVideo.requestFullscreen === 'function') {
+        promoVideo.requestFullscreen().catch(() => { /* O player permanece na janela. */ });
+      }
+
+      promoVideo.play().catch(() => { /* O visitante pode iniciar pelos controles. */ });
+    });
+
+    // Ao sair da tela cheia, volta à página e fecha a janela promocional.
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement && promoDialog.open) closePromoDialog();
+    });
+    promoVideo.addEventListener('webkitendfullscreen', () => {
+      if (promoDialog.open) closePromoDialog();
     });
 
     function closePromoDialog() {
